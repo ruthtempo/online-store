@@ -3,10 +3,11 @@
         <h2>Logo</h2>
         <nav>
             <NuxtLink 
-                v-for="(number, index) in test" 
+                v-for="(category, index) in categories" 
                 :key="index" 
-                :to="`/${number}`">
-                    test {{number}}
+                :to="`/${category}`"
+                class="category-link">
+                    {{category}}
             </NuxtLink>
         </nav>
         <div>
@@ -19,14 +20,23 @@
 
 <script>
 export default {
-    data() {
-        return {
-            test: [1,2,3,4] // (-> store.state.sections)
+    computed: {
+        categories() {
+            const products = this.$store.state.products
+            const productCategoriesArray = []
+            products.forEach((product) => {
+                if (!categories.some(element => element === product.category)) {
+                    categories.push(product.category)
+                }
+            })
+            return productCategoriesArray
         }
     }
 }
 </script>
 
 <style scoped>
-
+.category-link {
+    text-transform: uppercase;
+}
 </style>
