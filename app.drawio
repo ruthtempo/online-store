@@ -136,7 +136,7 @@
                 <mxCell id="49" value="&amp;lt;Button&amp;gt;Add to cart&amp;lt;/&amp;gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
                     <mxGeometry x="710" y="250" width="140" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="&lt;font color=&quot;#ffff00&quot;&gt;carro: [{producte.id, quantitat}]&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                <mxCell id="50" value="&lt;font color=&quot;#cccc00&quot;&gt;carro: [{producte.id, quantitat}]&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
                     <mxGeometry x="130" y="150" width="180" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" value="mutations -&amp;gt; canviaQuantitatCarro, canviaQuantitatProductes" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
