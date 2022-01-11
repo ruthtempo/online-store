@@ -1,0 +1,166 @@
+<mxfile host="65bd71144e">
+    <diagram id="cAg1oVtVmHV-jtVLl5oZ" name="Page-1">
+        <mxGraphModel dx="1374" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="58" value="" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#E5CCFF;strokeColor=#FFFFFF;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="10" width="390" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="20" width="210" height="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="getters" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="215" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="state" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="70" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="mutations" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="295" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="actions" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="370" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="200" width="340" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;font color=&quot;#00cc66&quot;&gt;seccions/_seccio.vue&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="200" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="store/index.js" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#00CC66;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="20" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;fontColor=#FFFF00;strokeColor=#FFFF00;" edge="1" parent="1" source="12" target="17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=none;html=1;fontColor=#FFFF66;strokeColor=#FFFF00;" edge="1" parent="1" source="34" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=oval;endFill=1;strokeColor=#FFFFFF;" edge="1" parent="1" source="12" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;font color=&quot;#ffff00&quot;&gt;categories: [ ]&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#00CC66;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="90" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FFFF00;strokeColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="50" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;font color=&quot;#00cc66&quot;&gt;TheHeader.vue&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="385" y="50" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;entryX=0.385;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF00;strokeColor=#FFFF00;" edge="1" parent="1" source="17" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&amp;lt;NuxtLink to=&quot;/seccions/seccio&quot;&amp;gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="120" width="190" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;fontColor=#66B2FF;strokeColor=#FFFF00;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="21" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="productes()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="290" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;font color=&quot;#ffffff&quot;&gt;computed&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="275" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;font color=&quot;#66b2ff&quot;&gt;$store.getters.productesDeSeccio(seccio)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="395" y="290" width="240" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=-0.062;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF66;strokeColor=#66B2FF;" edge="1" parent="1" source="25" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;font color=&quot;#ffff66&quot;&gt;productesDeSeccio(seccio)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#66B2FF;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="235" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;fontColor=#00CC66;strokeColor=#FFFFFF;endArrow=oval;endFill=1;" edge="1" parent="1" source="28" target="33">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;font color=&quot;#ffffff&quot;&gt;v-for producte in productes &amp;lt;FitxaProducte&amp;gt; :producte&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF66;" vertex="1" parent="1">
+                    <mxGeometry x="335" y="220" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FFFFFF;strokeColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="210" width="290" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="edgeStyle=none;html=1;fontColor=#FFFFFF;strokeColor=#66B2FF;" edge="1" parent="1" source="30" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="&lt;font color=&quot;#00cc66&quot;&gt;FitxaProducte.vue&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="750" y="210" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;font color=&quot;#ffb366&quot;&gt;props&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#00CC66;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="280" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=oval;endFill=1;strokeColor=#FFFFFF;" edge="1" parent="1" source="34" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="&lt;font color=&quot;#ffff00&quot;&gt;productes: [ ]&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFB366;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="110" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;font color=&quot;#ffffff&quot;&gt;data&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="335" y="240" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0.579;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF00;endArrow=classic;endFill=1;strokeColor=#36393d;fillColor=#ffff88;" edge="1" parent="1" source="38" target="23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=classic;endFill=1;strokeColor=#FFFFFF;" edge="1" parent="1" source="38" target="23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;font color=&quot;#ffff00&quot;&gt;seccio&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="255" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;font color=&quot;#66b2ff&quot;&gt;this.$route.params.seccio&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="385" y="255" width="150" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=classic;endFill=1;strokeColor=#FFFFFF;entryX=0.468;entryY=1.05;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="42" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="obtenProductes()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="390" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=none;html=1;entryX=0.338;entryY=1.1;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF00;endArrow=classic;endFill=1;strokeColor=#FFFFFF;" edge="1" parent="1" source="44" target="34">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="populateProductes (state, productes)" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="315" width="210" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="producte: { }" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="295" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;font color=&quot;#ffffff&quot;&gt;product.tilte, product.description, product.price&amp;nbsp;&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="230" width="260" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="&amp;lt;Button&amp;gt;Add to cart&amp;lt;/&amp;gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="250" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="&lt;font color=&quot;#ffff00&quot;&gt;carro: [{producte.id, quantitat}]&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="150" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="mutations -&amp;gt; canviaQuantitatCarro, canviaQuantitatProductes" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="260" width="340" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;font color=&quot;#cccc00&quot;&gt;canviaQuantitatCarro&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF99;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="340" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="&lt;font color=&quot;#cccc00&quot;&gt;canviaQuantitatProductes()&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF99;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="420" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=none;html=1;entryX=0.493;entryY=1.1;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#E5CCFF;endArrow=block;endFill=0;strokeColor=#FFFFFF;" edge="1" parent="1" source="54" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;font color=&quot;#e5ccff&quot;&gt;En lloc d'un botó, pot ser un component amb input per quantitat&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#CCCC00;" vertex="1" parent="1">
+                    <mxGeometry x="840" y="420" width="350" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" style="edgeStyle=none;html=1;fontColor=#E5CCFF;endArrow=block;endFill=0;strokeColor=#FFFFFF;" edge="1" parent="1" source="56" target="53">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;font color=&quot;#e5ccff&quot;&gt;Pot ser un métode que calculi l'stock restant-li el que hi ha al carro, així el podem cridar&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;color: rgb(229 , 204 , 255)&quot;&gt;quan fem servir la mutation canviaQuantitatCarro&lt;/span&gt;&lt;font color=&quot;#e5ccff&quot;&gt;&lt;br&gt;i també quan un usuari que tenia un carro ple torna a entrar&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#CCCC00;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="465" width="740" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="&lt;font color=&quot;#00cc00&quot;&gt;layouts/default.vue&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;dashed=1;fontColor=#E5CCFF;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="10" width="120" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
