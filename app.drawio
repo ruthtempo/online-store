@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="cAg1oVtVmHV-jtVLl5oZ" name="Page-1">
-        <mxGraphModel dx="938" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+        <mxGraphModel dx="1126" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -57,14 +57,14 @@
                 <mxCell id="22" value="&lt;font color=&quot;#ffffff&quot;&gt;computed&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF00;" parent="1" vertex="1">
                     <mxGeometry x="330" y="275" width="70" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="&lt;font color=&quot;#66b2ff&quot;&gt;$store.getters.sectionProducts(section)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" parent="1" vertex="1">
-                    <mxGeometry x="405" y="290" width="220" height="20" as="geometry"/>
+                <mxCell id="23" value="&lt;font color=&quot;#66b2ff&quot;&gt;this.$store.getters.getSectionProducts(section)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="290" width="260" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" style="edgeStyle=none;html=1;entryX=-0.062;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF66;strokeColor=#66B2FF;" parent="1" source="25" target="21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="&lt;font color=&quot;#ffff66&quot;&gt;sectionProducts(section)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#66B2FF;" parent="1" vertex="1">
-                    <mxGeometry x="75" y="235" width="150" height="20" as="geometry"/>
+                <mxCell id="25" value="&lt;font color=&quot;#ffff66&quot;&gt;getSectionProducts(section)&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#66B2FF;" parent="1" vertex="1">
+                    <mxGeometry x="65" y="235" width="170" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" style="edgeStyle=none;html=1;fontColor=#00CC66;strokeColor=#FFFFFF;endArrow=oval;endFill=1;" parent="1" source="28" target="33" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -135,20 +135,11 @@
                 <mxCell id="52" value="&lt;font color=&quot;#cccc00&quot;&gt;modifyCartQuantity&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF99;" parent="1" vertex="1">
                     <mxGeometry x="70" y="360" width="120" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="&lt;font color=&quot;#cccc00&quot;&gt;calculateStockQuantity()&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#FFFF99;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="440" width="150" height="20" as="geometry"/>
-                </mxCell>
                 <mxCell id="55" style="edgeStyle=none;html=1;entryX=0.493;entryY=1.1;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#E5CCFF;endArrow=block;endFill=0;strokeColor=#FFFFFF;" parent="1" source="54" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="54" value="&lt;font color=&quot;#e5ccff&quot;&gt;En lloc d'un botó, pot ser un component amb input per quantitat&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#CCCC00;" parent="1" vertex="1">
-                    <mxGeometry x="840" y="420" width="350" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;fontColor=#E5CCFF;endArrow=block;endFill=0;strokeColor=#FFFFFF;" parent="1" source="56" target="53" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="56" value="&lt;font color=&quot;#e5ccff&quot;&gt;Pot ser un métode que calculi l'stock restant-li el que hi ha al carro, així el podem cridar&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;color: rgb(229 , 204 , 255)&quot;&gt;quan fem servir la mutation canviaQuantitatCarro&lt;/span&gt;&lt;font color=&quot;#e5ccff&quot;&gt;&lt;br&gt;i també quan un usuari que tenia un carro ple torna a entrar&lt;br&gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontColor=#CCCC00;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="465" width="740" height="50" as="geometry"/>
+                    <mxGeometry x="750" y="380" width="350" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="59" value="&lt;font color=&quot;#00cc00&quot;&gt;layouts/default.vue&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;dashed=1;fontColor=#E5CCFF;" parent="1" vertex="1">
                     <mxGeometry x="440" y="10" width="120" height="20" as="geometry"/>
@@ -162,7 +153,7 @@
                 <mxCell id="68" style="edgeStyle=none;html=1;entryX=-0.003;entryY=0.107;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#FFFF00;endArrow=block;endFill=0;strokeColor=#FFFFFF;" parent="1" source="63" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" style="edgeStyle=none;html=1;entryX=-0.001;entryY=0.582;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="63" target="13">
+                <mxCell id="69" style="edgeStyle=none;html=1;entryX=-0.001;entryY=0.582;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=classic;endFill=1;" parent="1" source="63" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="&lt;font color=&quot;#ff0080&quot;&gt;dataReady&lt;/font&gt;" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;dashed=1;fontColor=#FFFFFF;" parent="1" vertex="1">
@@ -177,7 +168,7 @@
                 <mxCell id="8" value="actions" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="50" y="390" width="50" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=none;endFill=0;strokeColor=#FFFFFF;" edge="1" parent="1" source="42" target="8">
+                <mxCell id="70" value="" style="edgeStyle=none;html=1;fontColor=#FFFF00;endArrow=none;endFill=0;strokeColor=#FFFFFF;" parent="1" source="42" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="92.14285714285734" y="410.0000000000001" as="sourcePoint"/>
                         <mxPoint x="52.85714285714312" y="360" as="targetPoint"/>
