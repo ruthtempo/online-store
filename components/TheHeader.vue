@@ -25,17 +25,23 @@ export default {
             const products = this.$store.state.products
             const productCategoriesArray = []
             products.forEach((product) => {
-                if (!categories.some(element => element === product.category)) {
-                    categories.push(product.category)
+                if (!productCategoriesArray.some(element => element === product.category)) {
+                    productCategoriesArray.push(product.category)
                 }
             })
             return productCategoriesArray
         }
+    },
+    created() {
+        this.$store.dispatch('fetchProducts')
     }
 }
 </script>
 
 <style scoped>
+.container {
+    background-color: #99990055;
+}
 .category-link {
     text-transform: uppercase;
 }

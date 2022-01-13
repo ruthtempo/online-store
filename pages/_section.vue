@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <ProductCard v-for="product in products" :key="product.id" />
+      <ProductCard v-for="product in products" :key="product.id" :product="product" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     },
     computed: {
         products() {
-            return $store.getters.sectionProducts(section);
+            return this.$store.getters.getSectionProducts(this.section);
         }
     }
 }
