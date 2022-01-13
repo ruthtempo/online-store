@@ -29,6 +29,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.field input {
+    width: 100%;
+}
 
 </style>

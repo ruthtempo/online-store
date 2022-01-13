@@ -1,7 +1,7 @@
 <template>
-      <div>
+      <div class="form-container">
         <h2>Register</h2>
-        <form @submit.prevent="handleSubmit">
+        <form class="register-form" @submit.prevent="handleSubmit">
             <InputField type="text" label="First Name" v-model="user.firstName" />
             <InputField type="text" label="Last Name" v-model="user.lastName" />
             <InputField type="text" label="UserName" v-model="user.userName" />
@@ -36,6 +36,9 @@ methods: {
 }
 </script>
 
-<style>
-
+<style scoped>
+.form-container {
+    width: 80vw;
+    margin: auto;
+}
 </style>
