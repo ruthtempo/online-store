@@ -5,7 +5,11 @@ export const state = () => ({
 export const getters = {
     getSectionProducts: state => (section) => {
         return state.products.filter(product => product.category === section)
-    }
+    },
+    getProduct: state =>(id)=>{ 
+        return state.products.find(product =>
+            product.id === parseInt(id)
+    )}
 }
 
 export const mutations = {
