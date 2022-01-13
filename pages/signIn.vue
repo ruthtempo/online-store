@@ -7,7 +7,7 @@
             <InputField type="text" label="UserName" v-model="user.userName" />
             <InputField type="email" label="Email" v-model="user.email" />
             <InputField type="password" label="Password" v-model="user.password" />
-            <div class="form-group">
+            <div class="form-buttons">
                 <button>Register</button>
                 <NuxtLink to="/">Cancel</NuxtLink>
             </div>
@@ -39,6 +39,10 @@ methods: {
 <style scoped>
 .form-container {
     width: 80vw;
-    margin: auto;
+    margin: 0 auto 3rem;;
+}
+
+.form-buttons {
+    margin-top: 2rem;
 }
 </style>
