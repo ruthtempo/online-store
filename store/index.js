@@ -9,13 +9,14 @@ export const getters = {
     getProduct: state =>(id)=>{ 
         return state.products.find(product =>
             product.id === parseInt(id)
-    )}
+        )
+    }
 }
 
 export const mutations = {
     saveProducts(state, products) {
         state.products = products
-}
+    }
 }
 
 export const actions = {

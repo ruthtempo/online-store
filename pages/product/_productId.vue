@@ -1,12 +1,12 @@
 <template>
-    <div class="product-wrapper" :v-if="!!product">
+    <div class="product-wrapper" v-if="product">
         <div class="product-img" > 
-            <!-- <img :src='product.image' alt="the-product"> -->
+            <img :src='product.image' alt="the-product">
         </div>
         <div class="product-details">
-            <!-- <h2>{{product.title}}</h2>
+            <h2>{{product.title}}</h2>
             <p>{{product.description}}</p>
-            <h1>{{product.price}}</h1> -->
+            <h1>{{product.price}}</h1>
             <button>Add to Cart</button>
             <button>heart</button>
         </div>
@@ -25,5 +25,10 @@ export default {
 <style scoped>
 .product-wrapper{
     display:flex;
+}
+.product-img{
+    display:flex;
+    height:300px;
+    margin:10px;
 }
 </style>
