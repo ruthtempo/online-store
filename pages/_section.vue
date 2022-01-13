@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="productList-container">
       <ProductCard v-for="product in products" :key="product.id" :product="product" />
   </div>
 </template>
@@ -24,5 +24,11 @@ export default {
 </script>
 
 <style scoped>
-
+.productList-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height:100%
+    
+}
 </style>
