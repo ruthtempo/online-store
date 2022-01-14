@@ -1,12 +1,19 @@
 <template>
   <div class="field">
-      <label :for="inputName">{{ label }}</label>
-      <input :type="type" :value="value" @input="$emit('input', $event.target.value)">
+        <label :for="inputName">{{ label }}</label>
+        <ValidationProvider :rules="veeValidateRules" v-slot="{ errors }">
+            <input :type="type" :name="inputName" :value="value" @input="$emit('input', $event.target.value)">
+            <span class="errors">{{ errors[0] }}</span>
+        </ValidationProvider>
   </div>
 </template>
 
 <script>
+import { ValidationProvider } from 'vee-validate';
 export default {
+    components: {
+        ValidationProvider
+    },
     props: {
         label: {
             type: String,
@@ -19,6 +26,9 @@ export default {
         value: {
             type: String,
             required: true
+        },
+        veeValidateRules: {
+            type: String
         }
     },
     computed: {
@@ -32,6 +42,10 @@ export default {
 <style scoped>
 .field input {
     width: 100%;
+}
+
+.errors {
+    color: red;
 }
 
 </style>
