@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="header-container">
         <h2>Logo</h2>
         <nav>
             <NuxtLink 
@@ -39,8 +39,10 @@ export default {
 </script>
 
 <style scoped>
-.container {
+
+.header-container {
     background-color: #99990055;
+    height:30%;
 }
 .category-link {
     text-transform: uppercase;
