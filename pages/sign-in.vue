@@ -1,7 +1,12 @@
 <template>
       <div class="form-container">
         <h2>Register</h2>
-        <form class="register-form" @submit.prevent="handleSubmit">
+        <ValidationObserver 
+            tag="form"
+            v-slot="{ invalid }"
+            class="register-form" 
+            @submit.prevent="handleSubmit"
+        >
             <InputField 
                 class="input-field" 
                 type="text" 
@@ -38,31 +43,35 @@
                 veeValidateRules="required|alpha_dash|min:8" 
                 v-model="user.password" />
             <div class="form-buttons">
-                <button>Register</button>
+                <button :disabled="invalid">Register</button>
                 <NuxtLink to="/">Cancel</NuxtLink>
             </div>
-        </form>
+        </ValidationObserver>
     </div>
 </template>
 
 <script>
+import { ValidationObserver } from 'vee-validate';
 export default {
-data() {
-    return {
-        user: {
-            firstName: '',
-            lastName: '',
-            userName: '',
-            email: '',
-            password: ''
+    components: {
+        ValidationObserver
+    },
+    data() {
+        return {
+            user: {
+                firstName: '',
+                lastName: '',
+                userName: '',
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        handleSubmit(e) {
+            return
         }
     }
-},
-methods: {
-    handleSubmit(e) {
-        return
-    }
-}
 }
 </script>
 
