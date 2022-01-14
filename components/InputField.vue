@@ -2,7 +2,12 @@
   <div class="field">
         <label :for="inputName">{{ label }}</label>
         <ValidationProvider :rules="veeValidateRules" v-slot="{ errors }">
-            <input :type="type" :name="inputName" :value="value" @input="$emit('input', $event.target.value)">
+            <input 
+                :type="type"
+                :autocomplete="autocomplete"
+                :name="inputName"
+                :value="value"
+                @input="$emit('input', $event.target.value)">
             <span class="errors">{{ errors[0] }}</span>
         </ValidationProvider>
   </div>
@@ -15,6 +20,10 @@ export default {
         ValidationProvider
     },
     props: {
+        autocomplete: {
+            type: String,
+            required: true
+        },
         label: {
             type: String,
             required: true

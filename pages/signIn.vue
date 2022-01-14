@@ -5,31 +5,36 @@
             <InputField 
                 class="input-field" 
                 type="text" 
-                label="First Name" 
+                label="First Name"
+                autocomplete="on"
                 veeValidateRules="required|alpha_spaces" 
                 v-model="user.firstName" />
             <InputField 
                 class="input-field" 
                 type="text" 
-                label="Last Name" 
+                label="Last Name"
+                autocomplete="on"
                 veeValidateRules="required|alpha_spaces" 
                 v-model="user.lastName" />
             <InputField 
                 class="input-field" 
                 type="text" 
-                label="User Name" 
+                label="User Name"
+                autocomplete="off"
                 veeValidateRules="required|alpha_dash|min:6" 
                 v-model="user.userName" />
             <InputField 
                 class="input-field" 
                 type="email" 
-                label="Email" 
+                label="Email"
+                autocomplete="on"
                 veeValidateRules="required|email" 
                 v-model="user.email" />
             <InputField 
                 class="input-field" 
                 type="password" 
-                label="Password" 
+                label="Password"
+                autocomplete="off"
                 veeValidateRules="required|alpha_dash|min:8" 
                 v-model="user.password" />
             <div class="form-buttons">
