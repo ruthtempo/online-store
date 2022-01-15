@@ -13,7 +13,7 @@
         <div>
             <div>UserStatus</div>
             <div>Favorite</div>
-            <div>Cart</div>
+            <div><nuxt-link to="/checkout">Cart</nuxt-link></div>
         </div>
   </div>
 </template>

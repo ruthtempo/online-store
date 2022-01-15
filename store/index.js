@@ -1,5 +1,7 @@
 export const state = () => ({
-    products: []
+    products: [],
+    cart: []
+
 })
 
 export const getters = {
@@ -16,6 +18,9 @@ export const getters = {
 export const mutations = {
     saveProducts(state, products) {
         state.products = products
+    },
+    addToCart(state, item){
+        state.cart.push(item)
     }
 }
 

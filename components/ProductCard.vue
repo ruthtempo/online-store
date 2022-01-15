@@ -8,12 +8,15 @@
           <div> {{product.title }}</div>
           <div> {{product.price}} € </div>
       </div>
-
+      <AddToCart :cartItem="product"/>
   </div>
 </template>
 
 <script>
+import AddToCart from "./AddToCart.vue"
 export default {
+    name: "ProductCard",
+    components: AddToCart,
     props: {
         product: {
             type: Object,
