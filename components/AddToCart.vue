@@ -16,3 +16,21 @@ export default {
     }
 }
 </script>
+<style>
+
+button{
+    padding:15px;
+    margin:10px;
+    font-size: 15px;
+    border:none;
+    border-radius:5px;
+    background-color: gray;
+    color:white;
+    width:150px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color: darkgray;
+}
+</style>

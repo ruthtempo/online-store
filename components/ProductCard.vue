@@ -1,6 +1,6 @@
 <template>
   <div class="productCard-container">
-    <NuxtLink :to="`/product/${product.id}`">See Product</NuxtLink>
+    <NuxtLink :to="`/product/${product.id}`">
       <div class="image-wrapper">
           <img :src='product.image' alt="picture" class="image">
       </div>
@@ -8,6 +8,7 @@
           <div> {{product.title }}</div>
           <div> {{product.price}} € </div>
       </div>
+    </NuxtLink>
       <AddToCart :cartItem="product"/>
   </div>
 </template>
@@ -32,14 +33,14 @@ export default {
     flex-direction: column;
     background-color: lightgrey;
     margin: 10px;
-    width: 23%;
+    width: 20%;
     border-radius: 10px;
 }
 
 .image-wrapper{
     display:flex;
-
     align-items: center;
+    padding: 20px;
     
 
 }
@@ -56,6 +57,8 @@ export default {
     flex-direction: column;
     justify-content:center;
     align-items: flex-end;
+    padding:20px;
 }
+
 
 </style>
