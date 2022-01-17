@@ -8,7 +8,6 @@ export default {
     methods: {
         handleLogOut() {
             const auth = getAuth();
-            console.log('Logging out');
             signOut(auth).then(() => {
             // Sign-out successful.
             }).catch((error) => {
