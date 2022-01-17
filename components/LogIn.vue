@@ -38,7 +38,6 @@ export default {
     methods: {
         handleLogIn() {
             const auth = getAuth();
-            console.log('Logging in: ' + this.email, this.password);
             signInWithEmailAndPassword(auth, this.email, this.password)
                 .then((userCredential) => {
                 // Signed in 
