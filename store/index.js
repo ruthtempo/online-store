@@ -1,6 +1,7 @@
 export const state = () => ({
     products: [],
-    user: null
+    user: null,
+    cart: [],
 })
 
 export const getters = {
@@ -11,6 +12,13 @@ export const getters = {
         return state.products.find(product =>
             product.id === parseInt(id)
         )
+    },
+    getTotal:state =>{
+        let totalCost =0
+        state.cart.forEach(product => { 
+            totalCost += product.price 
+        });
+        return totalCost
     }
 }
 
@@ -25,6 +33,15 @@ export const mutations = {
             const { email } = authUser
             state.user = { email }
         }
+    },
+    addToCart(state, item){
+        state.cart.push(item)
+    },
+    removeItem(state, item){
+        state.cart = state.cart.filter(product=> product.id !== item.id)
+    },
+    emptyCart(state){
+        state.cart = []
     }
 }
 

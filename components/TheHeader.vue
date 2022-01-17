@@ -19,8 +19,10 @@
                 </div>
                 <LogOut v-if="user"/>
             </div>
-            <div>Favorite</div>
-            <div>Cart</div>
+        </div>
+        <div class="icons">
+            <div>Favorites</div>
+            <div><nuxt-link to="/checkout">Cart</nuxt-link></div>
         </div>
   </div>
 </template>
@@ -77,5 +79,14 @@ export default {
 
 .user-status {
     width: 35ch;
+}
+.icons{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icons div{
+    padding:20px;
 }
 </style>
