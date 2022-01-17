@@ -52,7 +52,11 @@ export default {
           appId: "1:884404975508:web:fd81ca6e38a0139b3b0181"
         },
         services: {
-          auth: true
+          auth: { 
+            initialize: {
+              onAuthStateChangedMutation: 'onAuthStateChangedMutation'
+            }
+          }
         },
         terminateDatabasesAfterGenerate: true
       }
