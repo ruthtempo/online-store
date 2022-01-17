@@ -1,5 +1,6 @@
 export const state = () => ({
-    products: []
+    products: [],
+    user: null
 })
 
 export const getters = {
@@ -16,6 +17,14 @@ export const getters = {
 export const mutations = {
     saveProducts(state, products) {
         state.products = products
+    },
+    onAuthStateChangedMutation(state, { authUser, claims }) {
+        if(!authUser) {
+            state.user = null
+        } else {
+            const { email } = authUser
+            state.user = { email }
+        }
     }
 }
 
