@@ -5,8 +5,7 @@
             tag="form"
             v-slot="{ invalid }"
             class="register-form" 
-            @submit.prevent="handleSubmit"
-        >
+            @submit.prevent="handleSubmit">
             <InputField 
                 class="input-field" 
                 type="text" 
@@ -52,6 +51,7 @@
 
 <script>
 import { ValidationObserver } from 'vee-validate';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 export default {
     components: {
         ValidationObserver
@@ -69,7 +69,18 @@ export default {
     },
     methods: {
         handleSubmit(e) {
-            return
+            const auth = getAuth();
+            createUserWithEmailAndPassword(auth, this.user.email, this.user.password)
+                .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                this.$router.push("/");
+                })
+                .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+                });
         }
     }
 }

@@ -1,5 +1,6 @@
 export const state = () => ({
     products: [],
+    user: null,
     cart: [],
 })
 
@@ -24,6 +25,14 @@ export const getters = {
 export const mutations = {
     saveProducts(state, products) {
         state.products = products
+    },
+    onAuthStateChangedMutation(state, { authUser, claims }) {
+        if(!authUser) {
+            state.user = null
+        } else {
+            const { email } = authUser
+            state.user = { email }
+        }
     },
     addToCart(state, item){
         state.cart.push(item)
