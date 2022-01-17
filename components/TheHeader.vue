@@ -1,7 +1,7 @@
 <template>
   <div class="header-container">
         <h2>Logo</h2>
-        <nav>
+        <nav class="categories-nav">
             <NuxtLink 
                 v-for="(category, index) in categories" 
                 :key="index" 
@@ -11,7 +11,14 @@
             </NuxtLink>
         </nav>
         <div>
-            <div>UserStatus</div>
+            <div class="user-status">
+                {{user ? `You're logged in (${user.email})` : "You're not logged in" }}
+                <div v-if="!user" class="user-not-logged-in">
+                    <LogIn />
+                    <p>Don't have an account? <NuxtLink to="/sign-in">Sign In</NuxtLink></p>
+                </div>
+                <LogOut v-if="user"/>
+            </div>
             <div>Favorite</div>
             <div>Cart</div>
         </div>
@@ -19,7 +26,13 @@
 </template>
 
 <script>
+import LogIn from '~/components/LogIn.vue'
+import LogOut from '~/components/LogOut.vue'
 export default {
+    components: {
+        LogIn,
+        LogOut
+    },
     computed: {
         categories() {
             const products = this.$store.state.products
@@ -30,6 +43,9 @@ export default {
                 }
             })
             return productCategoriesArray
+        },
+        user() {
+            return this.$store.state.user
         }
     },
     created() {
@@ -41,10 +57,25 @@ export default {
 <style scoped>
 
 .header-container {
+    display: flex;
+    justify-content: space-between;
     background-color: #99990055;
     height:30%;
+    padding: 2rem;
+}
+
+.categories-nav {
+    display: flex;
+    height: 2rem;
+    align-self: flex-end;
+    gap: 1rem;
 }
 .category-link {
+    display: inline-block;
     text-transform: uppercase;
+}
+
+.user-status {
+    width: 35ch;
 }
 </style>
