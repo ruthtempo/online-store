@@ -1,5 +1,6 @@
 export const state = () => ({
-    products: []
+    products: [],
+    cart: [],
 })
 
 export const getters = {
@@ -10,12 +11,28 @@ export const getters = {
         return state.products.find(product =>
             product.id === parseInt(id)
         )
+    },
+    getTotal:state =>{
+        let totalCost =0
+        state.cart.forEach(product => { 
+            totalCost += product.price 
+        });
+        return totalCost
     }
 }
 
 export const mutations = {
     saveProducts(state, products) {
         state.products = products
+    },
+    addToCart(state, item){
+        state.cart.push(item)
+    },
+    removeItem(state, item){
+        state.cart = state.cart.filter(product=> product.id !== item.id)
+    },
+    emptyCart(state){
+        state.cart = []
     }
 }
 

@@ -7,13 +7,18 @@
             <h2>{{product.title}}</h2>
             <p>{{product.description}}</p>
             <h1>{{product.price}}</h1>
-            <button>Add to Cart</button>
+            <AddToCart :cartItem="product"/>
             <button>heart</button>
         </div>
     </div>
 </template>
 <script>
+import AddToCart from "../../components/AddToCart.vue"
+
 export default {
+    components:{
+        AddToCart
+    },
      computed: {
         product() {
             console.log( typeof this.$route.params.productId)
