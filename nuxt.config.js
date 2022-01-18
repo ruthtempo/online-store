@@ -39,6 +39,13 @@ export default {
     '@nuxtjs/google-fonts'
   ],
 
+  googleFonts: {
+    families: {
+      'Source+Code+Pro': [400, 500],
+      Montserrat: [400, 600]
+    }
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
