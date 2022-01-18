@@ -20,9 +20,12 @@
                 <LogOut v-if="user"/>
             </div>
         </div>
-        <div class="icons">
-            <div>Favorites</div>
-            <div><nuxt-link to="/checkout">Cart</nuxt-link></div>
+        <div class="icons-menu">
+            <div><img class="icon" src="../assets/user.svg" alt=""></div>
+            <div><img class="icon" src="../assets/heart.svg" alt="favorites"></div>
+            <div>
+                <MicroCart />
+            </div>
         </div>
   </div>
 </template>
@@ -30,10 +33,13 @@
 <script>
 import LogIn from '~/components/LogIn.vue'
 import LogOut from '~/components/LogOut.vue'
+import MicroCart from '~/components/MicroCart.vue'
+
 export default {
     components: {
         LogIn,
-        LogOut
+        LogOut,
+        MicroCart
     },
     computed: {
         categories() {
@@ -80,13 +86,19 @@ export default {
 .user-status {
     width: 35ch;
 }
-.icons{
+.icons-menu{
     display:flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.icons div{
+.icons-menu div{
     padding:20px;
 }
+
+.icon{
+    height:30px;
+    width:30px;
+}
+
 </style>

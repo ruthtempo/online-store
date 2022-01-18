@@ -8,7 +8,9 @@
             <p>{{product.description}}</p>
             <h1>{{product.price}}</h1>
             <AddToCart :cartItem="product"/>
-            <button>heart</button>
+            <button class="icon-wrap">
+               <img class="icon" src="../../assets/heart.svg" alt="">
+            </button>
         </div>
     </div>
 </template>
@@ -36,4 +38,24 @@ export default {
     height:300px;
     margin:10px;
 }
+
+.icon{
+    width:30px;
+    height:30px;
+}
+
+.icon-wrap{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.icon-wrap:hover{
+    background-color: red;
+}
+
 </style>
