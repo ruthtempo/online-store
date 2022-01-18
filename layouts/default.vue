@@ -9,6 +9,7 @@
 body{
   height:100vh;
   margin:0px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .page{

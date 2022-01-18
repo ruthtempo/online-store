@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-        <h2>Logo</h2>
+        <img src="~/assets/logo.png" alt="PixelFashion - Clothing And Gadgets">
         <nav class="categories-nav">
             <NuxtLink 
                 v-for="(category, index) in categories" 
@@ -59,26 +59,54 @@ export default {
 <style scoped>
 
 .header-container {
+    font-family: 'Source Code Pro', monospace;
     display: flex;
     justify-content: space-between;
-    background-color: #99990055;
+    background: rgb(0,111,126);
+    background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
+    color: #ffc04a;
     height:30%;
     padding: 2rem;
+}
+
+.header-container a,
+.header-container a:visited {
+    text-decoration: none;
+    color: white;
 }
 
 .categories-nav {
     display: flex;
     height: 2rem;
     align-self: flex-end;
-    gap: 1rem;
+    gap: 1.4rem;
 }
 .category-link {
     display: inline-block;
     text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.category-link:visited {
+    color: white;
+}
+
+.category-link::after {
+    content: '|'
+}
+
+.category-link:last-of-type::after {
+    content: '';
 }
 
 .user-status {
     width: 35ch;
+}
+
+button {
+    font-family: 'Source Code Pro', monospace;
 }
 .icons{
     display:flex;
