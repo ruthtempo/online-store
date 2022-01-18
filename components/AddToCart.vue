@@ -20,7 +20,8 @@ export default {
 
 button{
     padding:15px;
-    margin:10px;
+    margin-top:20px;
+    margin-bottom:20px;
     font-size: 15px;
     border:none;
     border-radius:5px;

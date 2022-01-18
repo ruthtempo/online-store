@@ -6,16 +6,20 @@
             </div>
             <h3>{{item.title}}</h3>
             <h4> Subtotal: {{item.price}} €</h4>
-            <button @click="$store.commit('removeItem', item)" class="remove-item">Remove Item</button>
+            <button @click="$store.commit('removeItem', item)">Remove Item</button>
         </div>
         <div v-if="$store.state.cart.length != 0"> 
+            <h2>MY BASKET ({{$store.state.cart.length}})</h2> 
             <div class="total">
                 Total: {{$store.getters.getTotal}} €
             </div>
             <button @click="$store.commit('emptyCart')" class="empty-cart">Empty Cart</button>
         </div>
         <div v-else>
-            <p>Your Cart is Empty</p>
+            <h1>Your Cart is Empty</h1>
+            <button>
+                <nuxt-link to="index.vue">Continue Shopping</nuxt-link>
+            </button>
         </div>
     </div>
 </template>
