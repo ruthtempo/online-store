@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-        <img src="~/assets/logo.png" alt="PixelFashion - Clothing And Gadgets">
+        <img src="~/assets/logo2.png" alt="PixelFashion - Clothing And Gadgets" class="logo">
         <nav class="categories-nav">
             <NuxtLink 
                 v-for="(category, index) in categories" 
@@ -10,22 +10,10 @@
                     {{category}}
             </NuxtLink>
         </nav>
-        <div>
-            <div class="user-status">
-                {{user ? `You're logged in (${user.email})` : "You're not logged in" }}
-                <div v-if="!user" class="user-not-logged-in">
-                    <LogIn />
-                    <p>Don't have an account? <NuxtLink to="/sign-in">Sign In</NuxtLink></p>
-                </div>
-                <LogOut v-if="user"/>
-            </div>
-        </div>
         <div class="icons-menu">
-            <div><img class="icon" src="../assets/user.svg" alt=""></div>
-            <div><img class="icon" src="../assets/heart.svg" alt="favorites"></div>
-            <div>
+                <UserStatus />
+                <Favorites/>
                 <MicroCart />
-            </div>
         </div>
   </div>
 </template>
@@ -34,13 +22,17 @@
 import LogIn from '~/components/LogIn.vue'
 import LogOut from '~/components/LogOut.vue'
 import MicroCart from '~/components/MicroCart.vue'
+import UserStatus from '~/components/UserStatus.vue'
+import Favorites from '~/components/Favorites.vue'
 
 export default {
     components: {
-        LogIn,
-        LogOut,
-        MicroCart
-    },
+    LogIn,
+    LogOut,
+    MicroCart,
+    UserStatus,
+    Favorites
+},
     computed: {
         categories() {
             const products = this.$store.state.products
@@ -52,9 +44,6 @@ export default {
             })
             return productCategoriesArray
         },
-        user() {
-            return this.$store.state.user
-        }
     },
     created() {
         this.$store.dispatch('fetchProducts')
@@ -71,7 +60,6 @@ export default {
     background: rgb(0,111,126);
     background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
     color: #ffc04a;
-    height:30%;
     padding: 2rem;
 }
 
@@ -81,6 +69,11 @@ export default {
     color: white;
 }
 
+.logo {
+    width: 300px;
+    height: 90px;
+    margin: 0 auto;
+}
 .categories-nav {
     display: flex;
     height: 2rem;
@@ -107,14 +100,11 @@ export default {
     content: '';
 }
 
-.user-status {
-    width: 35ch;
-}
-
 .icons-menu{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .icons-menu div{
