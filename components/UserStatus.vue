@@ -27,9 +27,16 @@
         </div>
     </div>
 </template>
+
 <script>
+import LogIn from '~/components/LogIn.vue'
+import LogOut from '~/components/LogOut.vue'
 export default {
     name:"UserStatus",
+    components: {    
+        LogIn,
+        LogOut 
+    },
     computed: {
         user() {
         return this.$store.state.user
