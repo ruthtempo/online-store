@@ -2,23 +2,27 @@ export const state = () => ({
     products: [],
     user: null,
     cart: [],
+    sideNav: false
 })
 
 export const getters = {
     getSectionProducts: state => (section) => {
         return state.products.filter(product => product.category === section)
     },
-    getProduct: state =>(id)=>{ 
+    getProduct: state => (id) => { 
         return state.products.find(product =>
             product.id === parseInt(id)
         )
     },
-    getTotal:state =>{
+    getTotal: state => {
         let totalCost =0
         state.cart.forEach(product => { 
             totalCost += product.price 
         });
         return totalCost
+    },
+    getSideNavStatus: state => {
+        return state.sideNav
     }
 }
 
@@ -42,6 +46,9 @@ export const mutations = {
     },
     emptyCart(state){
         state.cart = []
+    },
+    setSideNav(state) {
+        state.sideNav = !state.sideNav
     }
 }
 
@@ -53,5 +60,8 @@ export const actions = {
             context.commit("saveProducts", response)
             }
         )
+    },
+    toggleSideNav({commit}) {
+        commit('setSideNav')
     }
 }
