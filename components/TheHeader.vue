@@ -18,7 +18,7 @@
                 <CategoriesNav />
             </div>
         <div class="icons-menu">
-                <UserStatus class="sm-screen-hide" />
+                <UserStatus class="sm-screen-hide"/>
                 <Favorites class="sm-screen-hide" />
                 <MicroCart />
         </div>
@@ -94,7 +94,10 @@ export default {
 .sidenav-toggle path {
     fill: #ffc04a;
 }
-
+/* 
+path {
+    fill: #ffc04a;
+} */
 @media (min-width: 1420px) {
     .sidenav-toggle {
         display: none;

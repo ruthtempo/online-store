@@ -92,7 +92,7 @@ path {
 }
 a{
   text-decoration: none;
-  color:white;
+  color:#ffc04a;
 }
 
 .product-img{

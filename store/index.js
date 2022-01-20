@@ -2,7 +2,8 @@ export const state = () => ({
     products: [],
     user: null,
     cart: [],
-    sideNav: false
+    sideNav: false,
+    favorites: []
 })
 
 export const getters = {
@@ -49,6 +50,10 @@ export const mutations = {
     },
     setSideNav(state) {
         state.sideNav = !state.sideNav
+    },
+    addToFavorites(state, item){
+        state.favorites.push(item)
+        console.log(state.favorites)
     }
 }
 
