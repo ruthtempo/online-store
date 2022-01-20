@@ -18,8 +18,8 @@
                 <CategoriesNav />
             </div>
         <div class="icons-menu">
-                <UserStatus />
-                <Favorites/>
+                <UserStatus class="sm-screen-hide" />
+                <Favorites class="sm-screen-hide" />
                 <MicroCart />
         </div>
   </div>
@@ -98,6 +98,23 @@ export default {
 @media (min-width: 1420px) {
     .sidenav-toggle {
         display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .sm-screen-hide {
+        display: none;
+    }
+    .icons-menu div {
+        padding: 20px 0;
+        margin-left: 1rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .logo {
+        height: 64px;
+        width: 200px;    
     }
 }
 </style>
