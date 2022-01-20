@@ -1,61 +1,43 @@
 <template>
   <div class="header-container">
-        <img src="~/assets/logo.png" alt="PixelFashion - Clothing And Gadgets">
-        <nav class="categories-nav">
-            <NuxtLink 
-                v-for="(category, index) in categories" 
-                :key="index" 
-                :to="`/${category}`"
-                class="category-link">
-                    {{category}}
-            </NuxtLink>
-        </nav>
-        <div>
-            <div class="user-status">
-                {{user ? `You're logged in (${user.email})` : "You're not logged in" }}
-                <div v-if="!user" class="user-not-logged-in">
-                    <LogIn />
-                    <p>Don't have an account? <NuxtLink to="/sign-in">Sign In</NuxtLink></p>
-                </div>
-                <LogOut v-if="user"/>
-            </div>
+        <div class="sidenav-toggle" role="button" @click="$store.dispatch('toggleSideNav')">
+            <svg version="1.1" 
+                id="Layer_1" 
+                xmlns="http://www.w3.org/2000/svg" 
+                xmlns:xlink="http://www.w3.org/1999/xlink" 
+                x="0px" y="0px"
+	            width="35px" height="35px" 
+                viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
+                <path id="XMLID_101_" d="M78,23.5H14c-3.6,0-6.5-2.9-6.5-6.5s2.9-6.5,6.5-6.5h64c3.6,0,6.5,2.9,6.5,6.5S81.6,23.5,78,23.5z M84.5,46
+	                c0-3.6-2.9-6.5-6.5-6.5H14c-3.6,0-6.5,2.9-6.5,6.5s2.9,6.5,6.5,6.5h64C81.6,52.5,84.5,49.6,84.5,46z M84.5,75c0-3.6-2.9-6.5-6.5-6.5
+	                H14c-3.6,0-6.5,2.9-6.5,6.5s2.9,6.5,6.5,6.5h64C81.6,81.5,84.5,78.6,84.5,75z"/>
+            </svg>
         </div>
-        <div class="icons-menu">
-            <div><img class="icon" src="../assets/user.svg" alt=""></div>
-            <div><img class="icon" src="../assets/heart.svg" alt="favorites"></div>
-            <div>
-                <MicroCart />
+        <img src="~/assets/logo2.png" alt="PixelFashion - Clothing And Gadgets" class="logo">
+            <div class="categories-nav">
+                <CategoriesNav />
             </div>
+        <div class="icons-menu">
+                <UserStatus />
+                <Favorites/>
+                <MicroCart />
         </div>
   </div>
 </template>
 
 <script>
-import LogIn from '~/components/LogIn.vue'
-import LogOut from '~/components/LogOut.vue'
+import CategoriesNav from '~/components/CategoriesNav.vue'
 import MicroCart from '~/components/MicroCart.vue'
+import UserStatus from '~/components/UserStatus.vue'
+import Favorites from '~/components/Favorites.vue'
 
 export default {
     components: {
-        LogIn,
-        LogOut,
-        MicroCart
-    },
-    computed: {
-        categories() {
-            const products = this.$store.state.products
-            const productCategoriesArray = []
-            products.forEach((product) => {
-                if (!productCategoriesArray.some(element => element === product.category)) {
-                    productCategoriesArray.push(product.category)
-                }
-            })
-            return productCategoriesArray
-        },
-        user() {
-            return this.$store.state.user
-        }
-    },
+    CategoriesNav,
+    MicroCart,
+    UserStatus,
+    Favorites
+},
     created() {
         this.$store.dispatch('fetchProducts')
     }
@@ -63,7 +45,6 @@ export default {
 </script>
 
 <style scoped>
-
 .header-container {
     font-family: 'Source Code Pro', monospace;
     display: flex;
@@ -71,59 +52,52 @@ export default {
     background: rgb(0,111,126);
     background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
     color: #ffc04a;
-    height:30%;
-    padding: 2rem;
+    padding: 1.8rem;
 }
-
 .header-container a,
 .header-container a:visited {
     text-decoration: none;
     color: white;
 }
 
+.logo {
+    width: 300px;
+    height: 90px;
+    margin: 0 auto;
+}
 .categories-nav {
     display: flex;
-    height: 2rem;
-    align-self: flex-end;
-    gap: 1.4rem;
 }
-.category-link {
-    display: inline-block;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 1.4rem;
-    color: white;
+@media(max-width: 1420px) {
+    .header-container {
+        padding: 1.8rem 1rem;
+    }
+    .categories-nav {
+        display: none;
+    }
 }
-
-.category-link:visited {
-    color: white;
-}
-
-.category-link::after {
-    content: '|'
-}
-
-.category-link:last-of-type::after {
-    content: '';
-}
-
-.user-status {
-    width: 35ch;
-}
-
 .icons-menu{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
-
 .icons-menu div{
-    padding:20px;
+    padding: 20px;
+}
+.sidenav-toggle {
+    align-self: center;
+    margin-right: 1rem;
+    cursor: pointer;
 }
 
-.icon{
-    height:30px;
-    width:30px;
+.sidenav-toggle path {
+    fill: #ffc04a;
 }
 
+@media (min-width: 1420px) {
+    .sidenav-toggle {
+        display: none;
+    }
+}
 </style>
