@@ -2,7 +2,7 @@
     <div class="sidenav-container">
         <div v-if="sidenav" class="backdrop" @click="$store.dispatch('toggleSideNav')"></div>
         <transition name="slide-side">
-            <div v-if="sidenav" class="sidenav" @click="$store.dispatch('toggleSideNav')">
+            <div v-if="sidenav" class="sidenav">
                 <CategoriesNav/>
             </div>
         </transition>
