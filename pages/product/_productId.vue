@@ -9,19 +9,19 @@
             <h1>{{product.price}}€</h1>
             <div class="action-buttons">
                 <AddToCart :cartItem="product"/>
-                <button class="icon-wrap">
-                    <img class="heart-icon" src="../../assets/heart.svg" alt="">
-                </button>
+                <AddToFavorites :cartItem="product"/>
             </div>
         </div>
     </div>
 </template>
 <script>
 import AddToCart from "../../components/AddToCart.vue"
+import AddToFavorites from "../../components/AddToFavorites.vue"
 
 export default {
     components:{
-        AddToCart
+        AddToCart,
+        AddToFavorites,
     },
      computed: {
         product() {
@@ -50,24 +50,6 @@ export default {
     justify-content: space-around;
 }   
 
-.heart-icon{
-    display: flex;
-    width:30px;
-    height:30px;
-}
 
-.icon-wrap{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-color: pink;
-    width:60px;
-    height:40px;
-    border-radius: 15px;
-}
-
-.icon-wrap:hover{
-    background-color: tomato;
-}
 
 </style>

@@ -11,16 +11,19 @@
     </NuxtLink>
     <div class="action-buttons">
         <AddToCart :cartItem="product"/>
-        <img class="heart-icon" src="../assets/heart.svg" alt="favorites">
+        <AddToFavorites :cartItem="product"/>
     </div>
   </div>
 </template>
 
 <script>
 import AddToCart from "./AddToCart.vue"
+import AddToFavorites from "./AddToFavorites.vue"
 export default {
     name: "ProductCard",
-    components: AddToCart,
+    components: {
+        AddToCart, 
+        AddToFavorites},
     props: {
         product: {
             type: Object,
@@ -33,6 +36,7 @@ export default {
 <style scoped>
 div{
     display:flex;
+    padding:10px;
 }
 .productCard-container{
     display:flex;
@@ -65,25 +69,21 @@ div{
     display:flex;
     flex-direction: column;
     justify-content:center;
-    align-items: flex-end;
+    align-items: center;
     padding:20px;
 }
 
 a{
     text-decoration: none;
+}
 
+:visited{
+    color: blue;
 }
 
 .action-buttons{
     display:flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }   
 
-.heart-icon{
-    display: flex;
-    padding-left:20px;
-    width:30px;
-    height:30px;
-}
 </style>
