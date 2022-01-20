@@ -9,7 +9,10 @@
           <div> {{product.price}} € </div>
       </div>
     </NuxtLink>
-      <AddToCart :cartItem="product"/>
+    <div class="action-buttons">
+        <AddToCart :cartItem="product"/>
+        <img class="heart-icon" src="../assets/heart.svg" alt="favorites">
+    </div>
   </div>
 </template>
 
@@ -28,10 +31,15 @@ export default {
 </script>
 
 <style scoped>
+div{
+    display:flex;
+}
 .productCard-container{
     display:flex;
     flex-direction: column;
-    background-color: lightgrey;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
     margin: 10px;
     width: 20%;
     border-radius: 10px;
@@ -40,14 +48,15 @@ export default {
 .image-wrapper{
     display:flex;
     align-items: center;
+    justify-content: center;
     padding: 20px;
     
 
 }
 .image{
     display:flex;
-    height:200px;
-    width:200px;
+    height:250px;
+    width:250px;
     align-self: center;
 
 }
@@ -60,5 +69,21 @@ export default {
     padding:20px;
 }
 
+a{
+    text-decoration: none;
 
+}
+
+.action-buttons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+.heart-icon{
+    display: flex;
+    padding-left:20px;
+    width:30px;
+    height:30px;
+}
 </style>

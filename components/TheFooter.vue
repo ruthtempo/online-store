@@ -18,8 +18,8 @@ export default {
 <style scoped>
 .footer-container {
     font-family: 'Source Code Pro', monospace;
-    background: rgb(0,111,126);
-    background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
+    background: rgba(7,7,98,1);
+    /* background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%); */
     color: #ffc04a;
 }
 
