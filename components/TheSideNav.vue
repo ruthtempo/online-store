@@ -2,7 +2,11 @@
     <div class="sidenav-container">
         <div v-if="sidenav" class="backdrop" @click="$store.dispatch('toggleSideNav')"></div>
         <transition name="slide-side">
-            <div v-if="sidenav" class="sidenav" @click="$store.dispatch('toggleSideNav')">
+            <div v-if="sidenav" class="sidenav">
+                <div class="sm-screen-only">
+                    <UserStatus/>
+                    <Favorites/>
+                </div>
                 <CategoriesNav/>
             </div>
         </transition>
@@ -12,9 +16,13 @@
 
 <script>
 import CategoriesNav from '~/components/CategoriesNav'
+import UserStatus from '~/components/UserStatus'
+import Favorites from '~/components/Favorites'
 export default {
     components: {
-        CategoriesNav
+        CategoriesNav,
+        UserStatus,
+        Favorites
     },
     computed: {
         sidenav() {
@@ -33,7 +41,7 @@ export default {
     height: 100%;
     width: 320px;
     background: rgb(0,111,126);
-    background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
+    background: linear-gradient(rgba(7,7,98,1) 0%, rgb(7, 7, 70) 100%);
     z-index: 1000;
     position: fixed;
     top: 0;
@@ -57,5 +65,16 @@ export default {
 .slide-side-enter,
 .slide-side-leave-to {
     transform: translateX(-100%)
+}
+
+.sm-screen-only {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 700px) {
+    .sm-screen-only {
+        display: none;
+    }
 }
 </style>
