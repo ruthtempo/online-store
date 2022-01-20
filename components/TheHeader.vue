@@ -1,17 +1,7 @@
 <template>
   <div class="header-container">
         <div class="sidenav-toggle" role="button" @click="$store.dispatch('toggleSideNav')">
-            <svg version="1.1" 
-                id="Layer_1" 
-                xmlns="http://www.w3.org/2000/svg" 
-                xmlns:xlink="http://www.w3.org/1999/xlink" 
-                x="0px" y="0px"
-	            width="35px" height="35px" 
-                viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
-                <path id="XMLID_101_" d="M78,23.5H14c-3.6,0-6.5-2.9-6.5-6.5s2.9-6.5,6.5-6.5h64c3.6,0,6.5,2.9,6.5,6.5S81.6,23.5,78,23.5z M84.5,46
-	                c0-3.6-2.9-6.5-6.5-6.5H14c-3.6,0-6.5,2.9-6.5,6.5s2.9,6.5,6.5,6.5h64C81.6,52.5,84.5,49.6,84.5,46z M84.5,75c0-3.6-2.9-6.5-6.5-6.5
-	                H14c-3.6,0-6.5,2.9-6.5,6.5s2.9,6.5,6.5,6.5h64C81.6,81.5,84.5,78.6,84.5,75z"/>
-            </svg>
+            <IconBase icon-name="menu" strokeColor="#ffc04a"><IconBurger/></IconBase>
         </div>
         <img src="~/assets/logo2.png" alt="PixelFashion - Clothing And Gadgets" class="logo">
             <div class="categories-nav">
@@ -30,14 +20,18 @@ import CategoriesNav from '~/components/CategoriesNav.vue'
 import MicroCart from '~/components/MicroCart.vue'
 import UserStatus from '~/components/UserStatus.vue'
 import Favorites from '~/components/Favorites.vue'
+import IconBase from '~/components/IconBase.vue'
+import IconBurger from '~/components/icons/IconBurger.vue'
 
 export default {
     components: {
-    CategoriesNav,
-    MicroCart,
-    UserStatus,
-    Favorites
-},
+        CategoriesNav,
+        Favorites,
+        IconBase,
+        IconBurger,
+        MicroCart,
+        UserStatus
+    },
     created() {
         this.$store.dispatch('fetchProducts')
     }
@@ -91,13 +85,6 @@ export default {
     cursor: pointer;
 }
 
-.sidenav-toggle path {
-    fill: #ffc04a;
-}
-/* 
-path {
-    fill: #ffc04a;
-} */
 @media (min-width: 1420px) {
     .sidenav-toggle {
         display: none;
