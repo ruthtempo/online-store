@@ -19,13 +19,15 @@ export default {
 <style>
 
 button{
+    display: flex;
+    justify-content: center;
     padding:15px;
     margin-top:20px;
     margin-bottom:20px;
     font-size: 15px;
     border:none;
     border-radius:5px;
-    background-color: gray;
+    background-color: #ffc04a;
     color:white;
     width:150px;
     cursor:pointer;

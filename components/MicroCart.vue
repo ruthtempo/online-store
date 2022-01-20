@@ -22,18 +22,22 @@
     <div class="cart-popover-content">
       <h2>MY BASKET ({{$store.state.cart.length}})</h2> 
       <div v-for="item in $store.state.cart" :key="item.id" class="product-box">
-            <img class="product-img" :src='item.image' alt="">
-            <h3>{{item.title}}</h3>
-            <h4> {{item.price}} €</h4>
-            <button @click="$store.commit('removeItem', item)">
-              <img class="trash" src="../assets/trash.svg" alt="">
-            </button>
+          <div class="img-wrap">
+              <img class="product-img" :src='item.image' alt="">
+          </div>
+          <div>
+              <h3>{{item.title}}</h3>
+              <h4> {{item.price}} €</h4>
+          </div>
+          <button class="trash-button" @click="$store.commit('removeItem', item)">
+            <img class="trash" src="../assets/trash.svg" alt="">
+          </button>
         </div>
         <div v-if="$store.state.cart.length != 0"> 
             <div class="total">
                 Total: {{$store.getters.getTotal}} €
             </div>
-            <button>
+            <button class="checkout-button">
               <nuxt-link to="/checkout.vue">Buy Now</nuxt-link>
             </button>
         </div>
@@ -50,10 +54,19 @@ export default {
 }
 </script>
 <style scoped>
+
+div{
+  display: flex;
+  flex-direction: column;
+}
 .microcart-wrapper {
   background-color: transparent;
   max-width:300px;
   margin: 0 auto
+}
+
+.product-box{
+  display:flex;
 }
 .microcart-wrapper:hover .cart-popover-content {
   z-index: 10;
@@ -90,13 +103,23 @@ a{
 h3, h4{
   font-size: 15px;
 }
-
 .trash{
-  width: 20px;
-  height:20px;
+  display:flex;
+  max-width: 20px;
+  max-height:20px;
 }
 
-button{
-  background-color: transparent;
+.checkout-button{
+  display: flex;
+  background-color: #ffc04a ;
+}
+
+.trash-button{
+  display: flex;
+  background-color: #ffc04a;
+}
+
+.img-wrap{
+  display:flex;
 }
 </style>
