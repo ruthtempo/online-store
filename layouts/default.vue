@@ -45,7 +45,7 @@ html, body {
 .page {
   height: 100vh;
   display: grid;
-  grid-template: auto 1fr auto / 1fr;
+  grid-template: auto 0 1fr auto / 1fr;
 }
 
 </style>
