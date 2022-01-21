@@ -8,7 +8,7 @@
                 <CategoriesNav />
             </div>
         <div class="icons-menu">
-                <UserStatus class="sm-screen-hide"/>
+                <UserStatus class="sm-screen-hide" left="-220"/>
                 <Favorites class="sm-screen-hide" />
                 <MicroCart />
         </div>
