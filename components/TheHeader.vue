@@ -90,6 +90,11 @@ export default {
         display: none;
     }
 }
+@media (min-width: 550px) {
+    .sidenav-toggle {
+        margin-left: 1.8rem;
+    }
+}
 
 @media (max-width: 700px) {
     .sm-screen-hide {
