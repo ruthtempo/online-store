@@ -4,7 +4,7 @@
         <transition name="slide-side">
             <div v-if="sidenav" class="sidenav">
                 <div class="sm-screen-only">
-                    <UserStatus/>
+                    <UserStatus left="-70" top="45"/>
                     <Favorites/>
                 </div>
                 <CategoriesNav/>
@@ -38,6 +38,7 @@ export default {
     width: 100%;
 }
 .sidenav {
+    font-family: 'Source Code Pro', monospace;
     height: 100%;
     width: 320px;
     background: rgb(0,111,126);
