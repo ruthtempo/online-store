@@ -17,7 +17,7 @@
         label="First Name"
         autocomplete="on"
         veeValidateRules="required|alpha_spaces"
-        v-model="user.firstName"
+        v-model="newUser.firstName"
       />
       <InputField
         class="input-field"
@@ -25,7 +25,7 @@
         label="Last Name"
         autocomplete="on"
         veeValidateRules="required|alpha_spaces"
-        v-model="user.lastName"
+        v-model="newUser.lastName"
       />
       <InputField
         class="input-field"
@@ -33,7 +33,7 @@
         label="User Name"
         autocomplete="off"
         veeValidateRules="required|alpha_dash|min:6"
-        v-model="user.userName"
+        v-model="newUser.userName"
       />
       <InputField
         class="input-field"
@@ -41,7 +41,7 @@
         label="Email"
         autocomplete="on"
         veeValidateRules="required|email"
-        v-model="user.email"
+        v-model="newUser.email"
       />
       <InputField
         class="input-field"
@@ -49,8 +49,9 @@
         label="Password"
         autocomplete="off"
         veeValidateRules="required|alpha_dash|min:8"
-        v-model="user.password"
+        v-model="newUser.password"
       />
+      <div v-if="alreadyExists" class="error">An account with this email adress already exists.</div>
       <div class="form-buttons">
         <button :disabled="invalid">Register</button>
         <NuxtLink to="/">Cancel</NuxtLink>
@@ -72,19 +73,20 @@ export default {
   },
   data() {
     return {
-      user: {
+      newUser: {
         firstName: "",
         lastName: "",
         userName: "",
         email: "",
         password: "",
       },
+      alreadyExists: false
     };
   },
   methods: {
     handleSubmit(e) {
       const auth = getAuth();
-      createUserWithEmailAndPassword(auth, this.user.email, this.user.password)
+      createUserWithEmailAndPassword(auth, this.newUser.email, this.newUser.password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
@@ -93,10 +95,23 @@ export default {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
+          if (errorCode === 'auth/email-already-in-use'){
+            // Display "account already exists" error message
+            this.alreadyExists = true;
+          } else {
+            console.log('errorcode: ' +  errorCode + ', errormsg: ' +  errorMessage);
+          }
         });
     },
   },
+  watch: {
+    // Clear "account already exists" error message when user edits email input
+    'newUser.email': function (newVal, oldVal) {
+      if (this.alreadyExists === true) {
+        this.alreadyExists = false;
+      }
+    }
+  }
 };
 </script>
 
@@ -114,5 +129,8 @@ export default {
 }
 .form-buttons {
   margin-top: 2rem;
+}
+.error {
+  color: red;
 }
 </style>
