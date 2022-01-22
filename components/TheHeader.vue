@@ -1,115 +1,134 @@
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
+
 <template>
   <div class="header-container">
-        <div class="sidenav-toggle" role="button" @click="$store.dispatch('toggleSideNav')">
-            <IconBase icon-name="menu" strokeColor="#ffc04a"><IconBurger/></IconBase>
-        </div>
-        <img src="~/assets/logo2.png" alt="PixelFashion - Clothing And Gadgets" class="logo">
-            <div class="categories-nav">
-                <CategoriesNav />
-            </div>
-        <div class="icons-menu">
-                <UserStatus class="sm-screen-hide" left="-220"/>
-                <Favorites class="sm-screen-hide" />
-                <MicroCart />
-        </div>
+    <div
+      class="sidenav-toggle"
+      role="button"
+      @click="$store.dispatch('toggleSideNav')"
+    >
+      <IconBase icon-name="menu" strokeColor="#ffc04a"><IconBurger /></IconBase>
+    </div>
+    <img
+      src="~/assets/logo2.png"
+      alt="PixelFashion - Clothing And Gadgets"
+      class="logo"
+    />
+    <div class="categories-nav">
+      <CategoriesNav />
+    </div>
+    <div class="icons-menu">
+      <UserStatus class="sm-screen-hide" left="-220" />
+      <Favorites class="sm-screen-hide" />
+      <MicroCart />
+    </div>
   </div>
 </template>
 
+<!-- *************************************************************************
+	SCRIPT
+	************************************************************************* -->
+
 <script>
-import CategoriesNav from '~/components/CategoriesNav.vue'
-import MicroCart from '~/components/MicroCart.vue'
-import UserStatus from '~/components/UserStatus.vue'
-import Favorites from '~/components/Favorites.vue'
-import IconBase from '~/components/IconBase.vue'
-import IconBurger from '~/components/icons/IconBurger.vue'
+import CategoriesNav from "~/components/CategoriesNav.vue";
+import MicroCart from "~/components/MicroCart.vue";
+import UserStatus from "~/components/UserStatus.vue";
+import Favorites from "~/components/Favorites.vue";
+import IconBase from "~/components/IconBase.vue";
+import IconBurger from "~/components/icons/IconBurger.vue";
 
 export default {
-    components: {
-        CategoriesNav,
-        Favorites,
-        IconBase,
-        IconBurger,
-        MicroCart,
-        UserStatus
-    },
-    created() {
-        this.$store.dispatch('fetchProducts')
-    }
-}
+  components: {
+    CategoriesNav,
+    Favorites,
+    IconBase,
+    IconBurger,
+    MicroCart,
+    UserStatus,
+  },
+  created() {
+    this.$store.dispatch("fetchProducts");
+  },
+};
 </script>
+
+<!-- *************************************************************************
+	STYLE
+	************************************************************************* -->
 
 <style scoped>
 .header-container {
-    font-family: 'Source Code Pro', monospace;
-    display: flex;
-    justify-content: space-between;
-    background: rgba(7,7,98,1);
-    /* background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%); */
-    color: #ffc04a;
-    padding: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(7, 7, 98, 1);
+  font-family: "Source Code Pro", monospace;
+  color: #ffc04a;
+  padding: 1.8rem;
 }
 .header-container a,
 .header-container a:visited {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .logo {
-    width: 300px;
-    height: 90px;
-    margin: 0 auto;
+  width: 300px;
+  height: 90px;
+  margin: 0 auto;
 }
 .categories-nav {
-    display: flex;
+  display: flex;
 }
-@media(max-width: 1420px) {
-    .header-container {
-        padding: 1.8rem 1rem;
-    }
-    .categories-nav {
-        display: none;
-    }
+@media (max-width: 1420px) {
+  .header-container {
+    padding: 1.8rem 1rem;
+  }
+  .categories-nav {
+    display: none;
+  }
 }
-.icons-menu{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
+.icons-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
-.icons-menu div{
-    padding: 20px;
+.icons-menu div {
+  padding: 20px;
 }
 .sidenav-toggle {
-    align-self: center;
-    margin-right: 1rem;
-    cursor: pointer;
+  align-self: center;
+  margin-right: 1rem;
+  cursor: pointer;
 }
 
 @media (min-width: 1420px) {
-    .sidenav-toggle {
-        display: none;
-    }
+  .sidenav-toggle {
+    display: none;
+  }
 }
 @media (min-width: 550px) {
-    .sidenav-toggle {
-        margin-left: 1.8rem;
-    }
+  .sidenav-toggle {
+    margin-left: 1.8rem;
+  }
 }
 
 @media (max-width: 700px) {
-    .sm-screen-hide {
-        display: none;
-    }
-    .icons-menu div {
-        padding: 20px 0;
-        margin-left: 1rem;
-    }
+  .sm-screen-hide {
+    display: none;
+  }
+  .icons-menu div {
+    padding: 20px 0;
+    margin-left: 1rem;
+  }
 }
 
 @media (max-width: 460px) {
-    .logo {
-        height: 64px;
-        width: 200px;    
-    }
+  .logo {
+    height: 64px;
+    width: 200px;
+  }
 }
 </style>

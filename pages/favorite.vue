@@ -1,13 +1,21 @@
-<template>
-  <Favorites/>
-</template>
-<script>
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
 
-import Favorites from "../components/Favorites.vue"
+<template>
+  <Favorites />
+</template>
+
+<!-- *************************************************************************
+	SCRIPT
+	************************************************************************* -->
+
+<script>
+import Favorites from "../components/Favorites.vue";
 
 export default {
-  components:{
-    Favorites
-    }
-}
+  components: {
+    Favorites,
+  },
+};
 </script>
