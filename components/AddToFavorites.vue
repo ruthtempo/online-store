@@ -1,29 +1,43 @@
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
+
 <template>
-    <button @click="$store.commit('addToFavorites', cartItem)">
-      <IconBase icon-name="favorite" strokeColor="#ffc04a"><IconHeart/></IconBase>
-    </button>
+  <button @click="$store.commit('addToFavorites', cartItem)">
+    <IconBase icon-name="favorite" strokeColor="#ffc04a">
+      <IconHeart/>
+    </IconBase>
+  </button>
 </template>
 
+<!-- *************************************************************************
+	SCRIPT
+	************************************************************************* -->
+
 <script>
-import IconBase from '~/components/IconBase'
-import IconHeart from '~/components/icons/IconHeart'
+import IconBase from "~/components/IconBase";
+import IconHeart from "~/components/icons/IconHeart";
 export default {
-  name:"AddToFavorites",
+  name: "AddToFavorites",
   components: {
     IconBase,
-    IconHeart
+    IconHeart,
   },
   props: {
-    cartItem:Object,
-  }
-}
+    cartItem: Object,
+  },
+};
 </script>
+
+<!-- *************************************************************************
+	STYLE
+	************************************************************************* -->
 
 <style scoped>
 button {
-  width:50px;
-  height:50px;
-  cursor:pointer;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
   background-color: violet;
 }
 </style>
