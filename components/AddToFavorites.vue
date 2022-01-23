@@ -1,36 +1,45 @@
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
+
 <template>
-    <button @click="$store.dispatch('toggleFavorites', favoriteItem)">
-      <div v-if="$store.getters.getFavorite(favoriteItem)">
-        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="30px" height="30px"  viewBox="0 0 512 512"><title>heart-glyph</title><path d="M362.67,21.33A149,149,0,0,0,256,66.19,149,149,0,0,0,149.33,21.33C67,21.33,0,88.32,0,170.67a148.45,148.45,0,0,0,43.08,104.9L240.51,484a21.33,21.33,0,0,0,31,0L468.75,275.74A148.45,148.45,0,0,0,512,170.67C512,88.32,445,21.33,362.67,21.33Z"/></svg>
-      </div>
-      <div v-else>
-        <svg version="1.1" 
-          id="Layer_1" 
-          xmlns="http://www.w3.org/2000/svg" 
-          xmlns:xlink="http://www.w3.org/1999/xlink" 
-          x="0px" y="0px"
-          width="30px" height="30px" 
-          viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
-          <path id="XMLID_1401_" d="M86.7,22C82.7,12.9,74,7,64.8,7c-9.3,0-15.3,4.1-18.8,8.5C42.5,11.1,36.5,7,27.2,7C18,7,9.3,12.9,5.3,22
-            C1,31.5,2.8,42,10.2,50.2c17.5,19.7,33,33.6,33.2,33.7c0.8,0.7,1.7,1,2.7,1s1.9-0.3,2.7-1c0.2-0.1,15.6-14.1,33.2-33.7
-            C89.2,42,91,31.5,86.7,22z M75.9,44.9C62.9,59.4,51.1,70.8,46,75.6c-5.1-4.8-16.9-16.1-29.9-30.7c-5.2-5.9-6.5-13-3.6-19.7
-            C15.3,19.1,21.2,15,27.2,15c11.9,0,14.6,8.9,14.9,10c0.4,1.8,2,3,3.8,3c0,0,0,0,0,0c1.8,0,3.4-1.3,3.9-3c0.3-1,3-10,14.9-10
-            c6,0,11.9,4.1,14.7,10.3C82.4,31.9,81.1,39,75.9,44.9z M74.9,33.3c0.1,1.9-1.3,3.6-3.3,3.7c-0.1,0-0.2,0-0.2,0
-            c-1.8,0-3.4-1.4-3.5-3.3c-0.4-5.7-4.1-6.6-4.8-6.7c-1.9-0.3-3.2-2-3-3.9c0.3-1.9,2.1-3.2,4-3C67.6,20.6,74.3,24,74.9,33.3z
-            M70.1,39.1c0.7,0.8,1.2,1.8,1.2,2.8c0,1.1-0.4,2.1-1.2,2.8c-0.7,0.8-1.8,1.2-2.8,1.2c-1,0-2.1-0.4-2.8-1.2
-            c-0.7-0.7-1.2-1.8-1.2-2.8c0-1,0.4-2.1,1.2-2.8c0.7-0.7,1.8-1.2,2.8-1.2C68.3,38,69.3,38.4,70.1,39.1z"/>
-        </svg>
-      </div>
-    </button>
+  <button @click="$store.dispatch('toggleFavorites', favoriteItem)">
+    <div v-if="$store.getters.getFavorite(favoriteItem)">
+      <IconHeartFilled/>
+    </div>
+    <div v-else>
+      <IconBase icon-name="favorite" strokeColor="#ffc04a">
+        <IconHeart/>
+      </IconBase>
+    </div>
+  </button>
 </template>
+
+<!-- *************************************************************************
+	SCRIPT
+	************************************************************************* -->
+
 <script>
+import IconBase from "~/components/IconBase";
+import IconHeart from "~/components/icons/IconHeart";
+import IconHeartFilled from "~/components/icons/IconHeartFilled";
 export default {
-  name:"AddToFavorites", 
-  props:{
-    favoriteItem:Object,
-  }
-}
+  name: "AddToFavorites",
+  components: {
+    IconBase,
+    IconHeart,
+    IconHeartFilled
+  },
+  props: {
+    favoriteItem: Object,
+  },
+};
 </script>
+
+<!-- *************************************************************************
+	STYLE
+	************************************************************************* -->
+
 <style scoped>
 button{
   width:50px;
@@ -38,8 +47,4 @@ button{
   cursor:pointer;
   background-color: transparent;
 }
-  path {
-    fill: #ffc04a;
-}
-
 </style>

@@ -1,3 +1,7 @@
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
+
 <template>
 <div>
     <ProductCard v-for="product in $store.state.favorites" :key="product.id" :product="product"/>
