@@ -1,9 +1,10 @@
 // STATE
 export const state = () => ({
-  products: [],
-  user: null,
-  cart: [],
   sideNav: false,
+  products: [],
+  cart: [],
+  user: null,
+  currentUser: {},
   favorites: [],
 });
 
@@ -22,6 +23,7 @@ export const getters = {
     });
     return totalCost;
   },
+  // Responsive layout
   getSideNavStatus: (state) => {
     return state.sideNav;
   },
@@ -29,17 +31,11 @@ export const getters = {
 
 // MUTATIONS
 export const mutations = {
+  // Populate the products array
   saveProducts(state, products) {
     state.products = products;
   },
-  onAuthStateChangedMutation(state, { authUser, claims }) {
-    if (!authUser) {
-      state.user = null;
-    } else {
-      const { email } = authUser;
-      state.user = { email };
-    }
-  },
+  // Cart mutations
   addToCart(state, item) {
     state.cart.push(item);
   },
@@ -49,12 +45,30 @@ export const mutations = {
   emptyCart(state) {
     state.cart = [];
   },
+  // Auth
+  onAuthStateChangedMutation(state, { authUser, claims }) {
+    if (!authUser) {
+      state.user = null;
+    } else {
+      const { email } = authUser;
+      state.user = { email };
+    }
+  },
+  // currentUser 
+  clearCurrentUser() {
+    state.currentUser = {};
+  },
+  // Responsive layout (sideNav switcher)
   setSideNav(state) {
     state.sideNav = !state.sideNav;
   },
+  // Favorites mutations
   addToFavorites(state, item) {
     state.favorites.push(item);
     console.log(state.favorites);
+  },
+  emptyFavorites(state) {
+    state.favorites = [];
   },
 };
 
