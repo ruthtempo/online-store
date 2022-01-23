@@ -23,6 +23,9 @@ export const getters = {
     });
     return totalCost;
   },
+  getUser: (state) => {
+    return state.user;
+  },
   // Responsive layout
   getSideNavStatus: (state) => {
     return state.sideNav;
@@ -50,8 +53,8 @@ export const mutations = {
     if (!authUser) {
       state.user = null;
     } else {
-      const { email } = authUser;
-      state.user = { email };
+      const { email, uid } = authUser;
+      state.user = { email, uid };
     }
   },
   // currentUser 
