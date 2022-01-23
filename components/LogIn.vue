@@ -36,6 +36,7 @@
 <script>
 import { ValidationObserver } from "vee-validate";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, onValue } from "firebase/database";
 export default {
   components: {
     ValidationObserver,
@@ -47,13 +48,29 @@ export default {
     };
   },
   methods: {
+    fetchDatabaseUserInfo(uid) {
+      const db = getDatabase();
+      return onValue(ref(db, '/users/' + uid), (snapshot) => {
+        const fetched = snapshot.val();
+        const user = {
+          firstName: fetched.firstName,
+          lastName: fetched.lastName,
+          userName: fetched.userName,
+          email: fetched.email,
+          id: fetched.id
+        }
+        this.$store.commit('setCurrentUser', user);
+        this.$store.commit('concatCarts', fetched.cart);
+        // TODO: Concatenate saved and current favorites
+      })
+    },
     handleLogIn() {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // ...
+          this.fetchDatabaseUserInfo(user.uid)
         })
         .catch((error) => {
           const errorCode = error.code;
