@@ -64,7 +64,8 @@ export default {
             initialize: {
               onAuthStateChangedMutation: 'onAuthStateChangedMutation'
             }
-          }
+          },
+          database: true
         },
         terminateDatabasesAfterGenerate: true
       }
