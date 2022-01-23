@@ -23,6 +23,9 @@ export const getters = {
     });
     return totalCost;
   },
+  getCart: (state) => {
+    return state.cart;
+  },
   getUser: (state) => {
     return state.user;
   },
