@@ -1,7 +1,5 @@
 <template>
-
     <div class="favorites-wrapper">
-        <div class="favorites-popover-title">
       <Nuxt-link to="/favorite">
         <svg version="1.1" 
             id="Layer_1" 
@@ -19,11 +17,8 @@
 	        M70.1,39.1c0.7,0.8,1.2,1.8,1.2,2.8c0,1.1-0.4,2.1-1.2,2.8c-0.7,0.8-1.8,1.2-2.8,1.2c-1,0-2.1-0.4-2.8-1.2
 	        c-0.7-0.7-1.2-1.8-1.2-2.8c0-1,0.4-2.1,1.2-2.8c0.7-0.7,1.8-1.2,2.8-1.2C68.3,38,69.3,38.4,70.1,39.1z"/>
         </svg>
+        ({{$store.state.favorites.length}})
       </Nuxt-link>
-        </div>
-        <!-- <div class="favorites-popover-content">
-
-        </div> -->
     </div>
   
 </template>
@@ -44,36 +39,13 @@ export default {
   max-width:300px;
   margin: 0 auto
 }
-/* .favorites-wrapper:hover .favorites-popover-content {
-  z-index: 10;
-  opacity: 1;
-  visibility: visible;
-  transform: translate(0, -20px);
-  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-}
-.favorites-popover-content {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    background: rgb(0,111,126);
-    background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%);
-    border: 2px dashed #ffc04a;
-    right:100px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    width: 35ch;
-} */
+
 path {
     fill: #ffc04a;
 }
-/* a {
-    text-decoration: none;
-    color:white;
+a{
+  text-decoration: none;
+  color:#ffc04a;
 }
-h3, h4 {
-  font-size: 15px;
-}
-button {
-  background-color: transparent;
-} */
+
 </style>

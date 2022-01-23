@@ -3,7 +3,7 @@ export const state = () => ({
     user: null,
     cart: [],
     sideNav: false,
-    favorites: []
+    favorites: [],
 })
 
 export const getters = {
@@ -24,6 +24,9 @@ export const getters = {
     },
     getSideNavStatus: state => {
         return state.sideNav
+    }, 
+    getFavorite: state=>(item)=>{
+        return state.favorites.some(product => product.id === item.id)
     }
 }
 
@@ -53,8 +56,12 @@ export const mutations = {
     },
     addToFavorites(state, item){
         state.favorites.push(item)
-        console.log(state.favorites)
-    }
+    }, 
+    removeFromFavorites(state, item){
+        state.favorites= state.favorites.filter(product=> product.id!== item.id)
+    },
+
+
 }
 
 export const actions = {
@@ -68,5 +75,12 @@ export const actions = {
     },
     toggleSideNav({commit}) {
         commit('setSideNav')
+    },
+    toggleFavorites(context, item){
+        if(context.state.favorites.some(product=> product.id === item.id)){
+            context.commit("removeFromFavorites", item)
+        }else{
+            context.commit("addToFavorites",item)
+        }
     }
 }

@@ -1,13 +1,13 @@
 <template>
-  <Favorites/>
+<div>
+    <ProductCard v-for="product in $store.state.favorites" :key="product.id" :product="product"/>
+</div>
 </template>
 <script>
-
-import Favorites from "../components/Favorites.vue"
+import ProductCard from '../components/ProductCard.vue'
 
 export default {
-  components:{
-    Favorites
-    }
+  components:ProductCard,
+
 }
 </script>

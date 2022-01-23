@@ -9,7 +9,7 @@
             <h1>{{product.price}}€</h1>
             <div class="action-buttons">
                 <AddToCart :cartItem="product"/>
-                <AddToFavorites :cartItem="product"/>
+                <AddToFavorites :favoriteItem="product"/>
             </div>
         </div>
     </div>
