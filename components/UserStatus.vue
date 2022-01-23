@@ -14,15 +14,15 @@
 
     <template v-slot:content>
       <p class="message">
-        {{ user ? `Logged in as ${user.email}` : "You're not logged in" }}
+        {{ user.id ? `Logged in as ${user.userName}` : "You're not logged in" }}
       </p>
-      <div v-if="!user">
+      <div v-if="!user.id">
         <LogIn />
         <p class="message">
           Don't have an account? <NuxtLink to="/sign-in">Sign In</NuxtLink>
         </p>
       </div>
-      <LogOut v-if="user" />
+      <LogOut v-if="user.id" />
     </template>
   </Popover>
 </template>
@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     user() {
-      return this.$store.state.user;
+      return this.$store.getters.getCurrentUser;
     },
   },
 };
