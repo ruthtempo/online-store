@@ -69,6 +69,7 @@
 <script>
 import { ValidationObserver } from "vee-validate";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 export default {
   components: {
     ValidationObserver,
@@ -81,11 +82,16 @@ export default {
         userName: "",
         email: "",
         password: "",
+        id: ""
       },
       alreadyExists: false,
     };
   },
   methods: {
+    createNewDatabaseEntry(user) {
+      const db = getDatabase();
+      set(ref(db, 'users/' + user.id), user);
+    },
     handleSubmit(e) {
       const auth = getAuth();
       createUserWithEmailAndPassword(
@@ -96,8 +102,11 @@ export default {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // TODO: Store new user in Firebase
+          this.newUser.id = user.uid;
+          this.newUser.cart = this.$store.getters.getCart;
+          delete this.newUser.password; // We don't want to store user passwords...
           this.$store.commit("setCurrentUser", this.newUser);
+          this.createNewDatabaseEntry(this.newUser)
           this.$router.push("/");
         })
         .catch((error) => {
