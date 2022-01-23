@@ -56,8 +56,7 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
-  margin: 10px;
+  padding: 20px;
   width: 20%;
   border-radius: 10px;
 }
@@ -93,6 +92,6 @@ a {
 
 .action-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 </style>

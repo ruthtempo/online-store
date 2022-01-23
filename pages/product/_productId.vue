@@ -6,7 +6,7 @@
         <div class="product-details">
             <h2>{{product.title}}</h2>
             <p>{{product.description}}</p>
-            <h1>{{product.price}}€</h1>
+            <h1>{{product.price}} €</h1>
             <div class="action-buttons">
                 <AddToCart :cartItem="product"/>
                 <AddToFavorites :favoriteItem="product"/>
@@ -34,7 +34,8 @@ export default {
 <style scoped>
 .product-wrapper{
     display:flex;
-    margin:3%;
+    padding:30px;
+    align-items:center;
 }
 .product-img{
     display:flex;
@@ -47,9 +48,12 @@ export default {
 .action-buttons{
     display:flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }   
 
+p{
+    line-height:1.5cm
+}
 
 
 </style>
