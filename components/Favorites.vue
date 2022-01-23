@@ -28,8 +28,9 @@ export default {
 </script>
 
 <style scoped>
-a{
+a, a:visited{
   text-decoration: none;
-  color:#ffc04a;
+  color:#ffc04a !important;
 }
+
 </style>
