@@ -26,8 +26,8 @@ export const getters = {
   getCart: (state) => {
     return state.cart;
   },
-  getUser: (state) => {
-    return state.user;
+  getCurrentUser: (state) => {
+    return state.currentUser;
   },
   // Responsive layout
   getSideNavStatus: (state) => {
@@ -50,6 +50,11 @@ export const mutations = {
   },
   emptyCart(state) {
     state.cart = [];
+  },
+  concatCarts(state, fetchedCart) {
+    if (Array.isArray(fetchedCart)) {
+      state.cart = state.cart.concat(fetchedCart);
+    }
   },
   // Auth
   onAuthStateChangedMutation(state, { authUser, claims }) {
