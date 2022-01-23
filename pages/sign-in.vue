@@ -51,7 +51,9 @@
         veeValidateRules="required|alpha_dash|min:8"
         v-model="newUser.password"
       />
-      <div v-if="alreadyExists" class="error">An account with this email adress already exists.</div>
+      <div v-if="alreadyExists" class="error">
+        An account with this email adress already exists.
+      </div>
       <div class="form-buttons">
         <button :disabled="invalid">Register</button>
         <NuxtLink to="/">Cancel</NuxtLink>
@@ -80,38 +82,46 @@ export default {
         email: "",
         password: "",
       },
-      alreadyExists: false
+      alreadyExists: false,
     };
   },
   methods: {
     handleSubmit(e) {
       const auth = getAuth();
-      createUserWithEmailAndPassword(auth, this.newUser.email, this.newUser.password)
+      createUserWithEmailAndPassword(
+        auth,
+        this.newUser.email,
+        this.newUser.password
+      )
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          // TODO: Store new user in Firebase
+          this.$store.commit("setCurrentUser", this.newUser);
           this.$router.push("/");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          if (errorCode === 'auth/email-already-in-use'){
+          if (errorCode === "auth/email-already-in-use") {
             // Display "account already exists" error message
             this.alreadyExists = true;
           } else {
-            console.log('errorcode: ' +  errorCode + ', errormsg: ' +  errorMessage);
+            console.log(
+              "errorcode: " + errorCode + ", errormsg: " + errorMessage
+            );
           }
         });
     },
   },
   watch: {
     // Clear "account already exists" error message when user edits email input
-    'newUser.email': function (newVal, oldVal) {
+    "newUser.email": function (newVal, oldVal) {
       if (this.alreadyExists === true) {
         this.alreadyExists = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
