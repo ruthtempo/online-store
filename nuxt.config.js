@@ -55,6 +55,7 @@ export default {
           apiKey: "AIzaSyB60pSAqXYIhU_x767IdIJlvTmvJDJBtX0",
           authDomain: "online-botiga.firebaseapp.com",
           projectId: "online-botiga",
+          databaseURL: "https://online-botiga-default-rtdb.europe-west1.firebasedatabase.app",
           storageBucket: "online-botiga.appspot.com",
           messagingSenderId: "884404975508",
           appId: "1:884404975508:web:fd81ca6e38a0139b3b0181"
