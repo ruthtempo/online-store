@@ -55,7 +55,10 @@ export const mutations = {
     }
   },
   // currentUser 
-  clearCurrentUser() {
+  setCurrentUser(state, userObject) {
+    state.currentUser = userObject;
+  },
+  clearCurrentUser(state) {
     state.currentUser = {};
   },
   // Responsive layout (sideNav switcher)
