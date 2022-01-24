@@ -3,10 +3,15 @@
 	************************************************************************* -->
 
 <template>
-  <button @click="$store.commit('addToFavorites', cartItem)">
-    <IconBase icon-name="favorite" strokeColor="#ffc04a">
-      <IconHeart/>
-    </IconBase>
+  <button @click="$store.dispatch('toggleFavorites', favoriteItem)">
+    <div v-if="$store.getters.getFavorite(favoriteItem)">
+      <IconHeartFilled/>
+    </div>
+    <div v-else>
+      <IconBase icon-name="favorite" strokeColor="#ffc04a">
+        <IconHeart/>
+      </IconBase>
+    </div>
   </button>
 </template>
 
@@ -17,14 +22,16 @@
 <script>
 import IconBase from "~/components/IconBase";
 import IconHeart from "~/components/icons/IconHeart";
+import IconHeartFilled from "~/components/icons/IconHeartFilled";
 export default {
   name: "AddToFavorites",
   components: {
     IconBase,
     IconHeart,
+    IconHeartFilled
   },
   props: {
-    cartItem: Object,
+    favoriteItem: Object,
   },
 };
 </script>
@@ -34,10 +41,10 @@ export default {
 	************************************************************************* -->
 
 <style scoped>
-button {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  background-color: violet;
+button{
+  width:50px;
+  height:50px;
+  cursor:pointer;
+  background-color: transparent;
 }
 </style>
