@@ -82,7 +82,9 @@ export default {
         userName: "",
         email: "",
         password: "",
-        id: ""
+        id: "",
+        cart: [],
+        favorites: []
       },
       alreadyExists: false,
     };
