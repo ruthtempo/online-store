@@ -25,6 +25,9 @@ export const getters = {
   getSideNavStatus: (state) => {
     return state.sideNav;
   },
+  getFavorite: state=>(item)=>{
+    return state.favorites.some(product => product.id === item.id)
+  }
 };
 
 // MUTATIONS
@@ -56,6 +59,9 @@ export const mutations = {
     state.favorites.push(item);
     console.log(state.favorites);
   },
+  removeFromFavorites(state, item){
+    state.favorites= state.favorites.filter(product=> product.id!== item.id)
+  },
 };
 
 // ACTIONS
@@ -70,4 +76,11 @@ export const actions = {
   toggleSideNav({ commit }) {
     commit("setSideNav");
   },
+  toggleFavorites(context, item){
+    if(context.state.favorites.some(product=> product.id === item.id)){
+        context.commit("removeFromFavorites", item)
+    }else{
+        context.commit("addToFavorites",item)
+    }
+  }
 };

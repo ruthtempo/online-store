@@ -7,13 +7,9 @@
     <IconBase icon-name="favorites" strokeColor="#ffc04a">
       <IconHeart/>
     </IconBase>
+    ({{$store.state.favorites.length}})
   </Nuxt-link>
 </template>
-
-<!-- *************************************************************************
-	SCRIPT
-	************************************************************************* -->
-
 <script>
 import IconBase from "~/components/IconBase";
 import IconHeart from "~/components/icons/IconHeart";
@@ -30,3 +26,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+a, a:visited{
+  text-decoration: none;
+  color:#ffc04a !important;
+}
+
+</style>
