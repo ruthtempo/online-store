@@ -36,7 +36,7 @@
 <script>
 import { ValidationObserver } from "vee-validate";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 export default {
   components: {
     ValidationObserver,
@@ -50,7 +50,7 @@ export default {
   methods: {
     fetchDatabaseUserInfo(uid) {
       const db = getDatabase();
-      return onValue(ref(db, '/users/' + uid), (snapshot) => {
+      get(ref(db, '/users/' + uid)).then((snapshot) => {
         const fetched = snapshot.val();
         const user = {
           firstName: fetched.firstName,
