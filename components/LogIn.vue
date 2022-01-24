@@ -61,7 +61,7 @@ export default {
         }
         this.$store.commit('setCurrentUser', user);
         this.$store.commit('concatCarts', fetched.cart);
-        // TODO: Concatenate saved and current favorites
+        this.$store.commit('concatFavorites', fetched.favorites);
       })
     },
     handleLogIn() {
