@@ -1,3 +1,5 @@
+import { getDatabase, ref, set } from "firebase/database";
+
 // STATE
 export const state = () => ({
   sideNav: false,
@@ -93,9 +95,9 @@ export const mutations = {
   emptyFavorites(state) {
     state.favorites = [];
   },
-  concatCarts(state, fetchedFavorites) {
+  concatFavorites(state, fetchedFavorites) {
     if (Array.isArray(fetchedFavorites)) {
-      state.cart = state.cart.concat(fetchedFavorites);
+      state.favorites = state.favorites.concat(fetchedFavorites);
     }
   },
 };
@@ -113,10 +115,21 @@ export const actions = {
     commit("setSideNav");
   },
   toggleFavorites(context, item){
-    if(context.state.favorites.some(product=> product.id === item.id)){
-        context.commit("removeFromFavorites", item)
-    }else{
-        context.commit("addToFavorites",item)
+    if(context.state.favorites.some(product => product.id === item.id)){
+        context.commit("removeFromFavorites", item);
+    } else {
+        context.commit("addToFavorites",item);
     }
+    context.dispatch("updateDatabaseFavorites");
+  },
+  updateDatabaseCart() {
+    const db = getDatabase();
+    const cartToSend = [...this.state.cart];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/cart'), cartToSend);
+  },
+  updateDatabaseFavorites() {
+    const db = getDatabase();
+    const favsToSend = [...this.state.favorites];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/favorites'), favsToSend);
   }
 };
