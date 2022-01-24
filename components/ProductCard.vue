@@ -47,10 +47,7 @@ export default {
 	************************************************************************* -->
 
 <style scoped>
-div {
-  display: flex;
-  padding: 10px;
-}
+
 .productCard-container {
   display: flex;
   flex-direction: column;

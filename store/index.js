@@ -70,6 +70,8 @@ export const mutations = {
     let itemo = state.cart.find(product =>product.id === item.id)
     //increase quantity property
     itemo.quantity ++
+    //copy of array so vue can detect deep nested changes
+    state.cart = state.cart.slice()
   }
 };
 

@@ -21,6 +21,7 @@
         </div>
         <div>
           <h3>{{ item.title }}</h3>
+          <p>Qty: {{item.quantity}}</p>
           <h4>{{ item.price }} €</h4>
         </div>
         <button class="trash-button" @click="$store.commit('removeItem', item)">

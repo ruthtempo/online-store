@@ -68,14 +68,14 @@ img {
 
 button {
   padding: 15px;
-  font-size: 15px;
+  font-size: 20px;
   border: none;
   border-radius: 5px;
-  background-color: gray;
+  background-color: #ffc04a;
 }
 
 button:hover {
-  background-color: darkgray;
+  background-color: lightgrey;
 }
 
 .total {
@@ -89,5 +89,10 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding-top:200px;
+}
+
+a{
+  text-decoration: none;
+  color:white
 }
 </style>
