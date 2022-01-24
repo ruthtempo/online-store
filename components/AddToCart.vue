@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.commit("addToCart", this.cartItem);
+      this.$store.dispatch("addOrIncrease", this.cartItem);
       console.log(this.$store.state.cart);
     },
   },

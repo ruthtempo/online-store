@@ -18,9 +18,10 @@ export const getters = {
   getTotal: (state) => {
     let totalCost = 0;
     state.cart.forEach((product) => {
-      totalCost += product.price;
+      totalCost += product.price * product.quantity;
     });
-    return totalCost;
+    //total with 2 decimals
+    return Math.round(totalCost * 100)/100;
   },
   getSideNavStatus: (state) => {
     return state.sideNav;
@@ -44,6 +45,8 @@ export const mutations = {
     }
   },
   addToCart(state, item) {
+    //create a new property "quantity" for the elements that are pushed in the cart
+    item['quantity']=1
     state.cart.push(item);
   },
   removeItem(state, item) {
@@ -62,6 +65,12 @@ export const mutations = {
   removeFromFavorites(state, item){
     state.favorites= state.favorites.filter(product=> product.id!== item.id)
   },
+  increaseQuantity(state,item){
+    //check in cart and find element by id
+    let itemo = state.cart.find(product =>product.id === item.id)
+    //increase quantity property
+    itemo.quantity ++
+  }
 };
 
 // ACTIONS
@@ -81,6 +90,14 @@ export const actions = {
         context.commit("removeFromFavorites", item)
     }else{
         context.commit("addToFavorites",item)
+    }
+  }, 
+  //if in the cart already, increase quantity. if not, add to cart
+  addOrIncrease(context, item){
+    if(context.state.cart.some(product=> product.id === item.id)){
+      context.commit("increaseQuantity", item)
+    }else{
+      context.commit("addToCart", item)
     }
   }
 };

@@ -9,6 +9,7 @@
         <img :src="item.image" alt="" />
       </div>
       <h3>{{ item.title }}</h3>
+      <p>Quantity: {{item.quantity}}</p>
       <h4>Subtotal: {{ item.price }} €</h4>
       <button @click="$store.commit('removeItem', item)">Remove Item</button>
     </div>
@@ -19,8 +20,8 @@
         Empty Cart
       </button>
     </div>
-    <div v-else>
-      <h1>Your Cart is Empty</h1>
+    <div v-else class="cart-empty">
+        <h1>Your Cart is Empty</h1>
       <button>
         <nuxt-link to="index.vue">Continue Shopping</nuxt-link>
       </button>
@@ -45,7 +46,8 @@ export default {
 <style scoped>
 .cart-wrapper {
   display: flex;
-  margin: 35px;
+  align-items: center;
+  justify-content: center;
 }
 img {
   height: 200px;
@@ -79,5 +81,13 @@ button:hover {
 .total {
   font-size: 25px;
   padding: 20px;
+}
+
+.cart-empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top:200px;
 }
 </style>
