@@ -29,6 +29,9 @@ export const getters = {
   getCurrentUser: (state) => {
     return state.currentUser;
   },
+  isLoggedIn: (state) => {
+    return !!state.currentUser.id;
+  },
   // Responsive layout
   getSideNavStatus: (state) => {
     return state.sideNav;
@@ -89,6 +92,11 @@ export const mutations = {
   },
   emptyFavorites(state) {
     state.favorites = [];
+  },
+  concatCarts(state, fetchedFavorites) {
+    if (Array.isArray(fetchedFavorites)) {
+      state.cart = state.cart.concat(fetchedFavorites);
+    }
   },
 };
 
