@@ -10,12 +10,12 @@
       </div>
       <h3>{{ item.title }}</h3>
       <h4>Subtotal: {{ item.price }} €</h4>
-      <button @click="$store.commit('removeItem', item)">Remove Item</button>
+      <button @click="removeItem(item)">Remove Item</button>
     </div>
     <div v-if="$store.state.cart.length != 0">
       <h2>MY BASKET ({{ $store.state.cart.length }})</h2>
       <div class="total">Total: {{ $store.getters.getTotal }} €</div>
-      <button @click="$store.commit('emptyCart')" class="empty-cart">
+      <button @click="emptyCart" class="empty-cart">
         Empty Cart
       </button>
     </div>
@@ -35,6 +35,25 @@
 <script>
 export default {
   name: "Cart",
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
+  methods: {
+    removeItem(item) {
+      this.$store.commit('removeItem', item);
+      if(this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
+    },
+    emptyCart() {
+      this.$store.commit('emptyCart');
+      if(this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
+    }
+  }
 };
 </script>
 
