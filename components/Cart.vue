@@ -10,7 +10,11 @@
       </div>
       <h3>{{ item.title }}</h3>
       <h4>Subtotal: {{ item.price }} €</h4>
-      <button @click="removeItem(item)">Remove Item</button>
+      <button @click="removeItem(item)">
+        <IconBase icon-name="remove-item" strokeColor="#ffc04a">
+          <IconTrash/>
+        </IconBase>
+      </button>
     </div>
     <div v-if="$store.state.cart.length != 0">
       <h2>MY BASKET ({{ $store.state.cart.length }})</h2>
@@ -33,8 +37,14 @@
 	************************************************************************* -->
 
 <script>
+import IconBase from '~/components/IconBase.vue'
+import IconTrash from '~/components/icons/IconTrash.vue'
 export default {
   name: "Cart",
+  components: {
+    IconBase,
+    IconTrash
+  },
   computed: {
     isLoggedIn: function () {
       return this.$store.getters.isLoggedIn;
