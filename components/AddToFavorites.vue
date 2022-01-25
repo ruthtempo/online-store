@@ -3,12 +3,19 @@
 	************************************************************************* -->
 
 <template>
-  <button @click="$store.dispatch('toggleFavorites', favoriteItem)">
+<div>
+  <Nuxt-link v-if="!$store.getters.isLoggedIn" to="/sign-in">
+  <div class="invalid-heart">
+      <IconBase strokeColor="#ffc04a">
+        <IconHeart />
+      </IconBase>
+  </div>
+  </Nuxt-link>
+  <button v-else @click="$store.dispatch('toggleFavorites', favoriteItem)">
     <div v-if="$store.getters.getFavorite(favoriteItem)">
       <IconBase>
         <IconHeartSolid/>
       </IconBase>
-      
     </div>
     <div v-else>
       <IconBase icon-name="favorite" strokeColor="#ffc04a">
@@ -16,6 +23,8 @@
       </IconBase>
     </div>
   </button>
+</div>
+
 </template>
 
 <!-- *************************************************************************
@@ -35,7 +44,7 @@ export default {
   },
   props: {
     favoriteItem: Object,
-  },
+  }
 };
 </script>
 
@@ -50,4 +59,12 @@ button{
   cursor:pointer;
   background-color: transparent;
 }
+
+.invalid-heart{
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left:10px;
+}
+
 </style>
