@@ -11,12 +11,16 @@
       <h3>{{ item.title }}</h3>
       <p>Quantity: {{item.quantity}}</p>
       <h4>Subtotal: {{ item.price }} €</h4>
-      <button @click="$store.commit('removeItem', item)">Remove Item</button>
+      <button @click="removeItem(item)">
+        <IconBase icon-name="remove-item" strokeColor="#ffc04a">
+          <IconTrash/>
+        </IconBase>
+      </button>
     </div>
     <div v-if="$store.state.cart.length != 0">
       <h2>MY BASKET ({{ $store.state.cart.length }})</h2>
       <div class="total">Total: {{ $store.getters.getTotal }} €</div>
-      <button @click="$store.commit('emptyCart')" class="empty-cart">
+      <button @click="emptyCart" class="empty-cart">
         Empty Cart
       </button>
     </div>
@@ -34,11 +38,32 @@
 	************************************************************************* -->
 
 <script>
-import QuantityInput from "../components/QuantityInput.vue"
+import IconBase from '~/components/IconBase.vue'
+import IconTrash from '~/components/icons/IconTrash.vue'
 export default {
   name: "Cart",
-  components:{
-    QuantityInput
+  components: {
+    IconBase,
+    IconTrash,
+  },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
+  methods: {
+    removeItem(item) {
+      this.$store.commit('removeItem', item);
+      if(this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
+    },
+    emptyCart() {
+      this.$store.commit('emptyCart');
+      if(this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
+    }
   }
 };
 </script>

@@ -1,9 +1,12 @@
+import { getDatabase, ref, set } from "firebase/database";
+
 // STATE
 export const state = () => ({
-  products: [],
-  user: null,
-  cart: [],
   sideNav: false,
+  products: [],
+  cart: [],
+  user: null,
+  currentUser: {},
   favorites: [],
 });
 
@@ -23,6 +26,16 @@ export const getters = {
     //total with 2 decimals
     return Math.round(totalCost * 100)/100;
   },
+  getCart: (state) => {
+    return state.cart;
+  },
+  getCurrentUser: (state) => {
+    return state.currentUser;
+  },
+  isLoggedIn: (state) => {
+    return !!state.currentUser.id;
+  },
+  // Responsive layout
   getSideNavStatus: (state) => {
     return state.sideNav;
   },
@@ -33,22 +46,15 @@ export const getters = {
 
 // MUTATIONS
 export const mutations = {
+  // Populate the products array
   saveProducts(state, products) {
     state.products = products;
   },
-  onAuthStateChangedMutation(state, { authUser, claims }) {
-    if (!authUser) {
-      state.user = null;
-    } else {
-      const { email } = authUser;
-      state.user = { email };
-    }
-  },
+
   addToCart(state, {item, quantity}) {
     //create a new property "quantity" for the elements that are pushed in the cart
     item['quantity'] = quantity
     state.cart.push(item);
-    console.log("addToCart")
   },
   removeItem(state, item) {
     state.cart = state.cart.filter((product) => product.id !== item.id);
@@ -56,9 +62,32 @@ export const mutations = {
   emptyCart(state) {
     state.cart = [];
   },
+  concatCarts(state, fetchedCart) {
+    if (Array.isArray(fetchedCart)) {
+      state.cart = state.cart.concat(fetchedCart);
+    }
+  },
+  // Auth
+  onAuthStateChangedMutation(state, { authUser, claims }) {
+    if (!authUser) {
+      state.user = null;
+    } else {
+      const { email, uid } = authUser;
+      state.user = { email, uid };
+    }
+  },
+  // currentUser 
+  setCurrentUser(state, userObject) {
+    state.currentUser = userObject;
+  },
+  clearCurrentUser(state) {
+    state.currentUser = {};
+  },
+  // Responsive layout (sideNav switcher)
   setSideNav(state) {
     state.sideNav = !state.sideNav;
   },
+  // Favorites mutations
   addToFavorites(state, item) {
     state.favorites.push(item);
     console.log(state.favorites);
@@ -75,6 +104,14 @@ export const mutations = {
     state.cart = state.cart.slice()
   },
   
+  emptyFavorites(state) {
+    state.favorites = [];
+  },
+  concatFavorites(state, fetchedFavorites) {
+    if (Array.isArray(fetchedFavorites)) {
+      state.favorites = state.favorites.concat(fetchedFavorites);
+    }
+  },
 };
 
 // ACTIONS
@@ -90,10 +127,10 @@ export const actions = {
     commit("setSideNav");
   },
   toggleFavorites(context, item){
-    if(context.state.favorites.some(product=> product.id === item.id)){
-        context.commit("removeFromFavorites", item)
-    }else{
-        context.commit("addToFavorites",item)
+    if(context.state.favorites.some(product => product.id === item.id)){
+        context.commit("removeFromFavorites", item);
+    } else {
+        context.commit("addToFavorites",item);
     }
   }, 
   //if in the cart already, increase quantity. if not, add to cart
@@ -103,5 +140,16 @@ export const actions = {
     }else{
       context.commit("addToCart", {item, quantity})
     }
+    context.dispatch("updateDatabaseFavorites");
+  },
+  updateDatabaseCart() {
+    const db = getDatabase();
+    const cartToSend = [...this.state.cart];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/cart'), cartToSend);
+  },
+  updateDatabaseFavorites() {
+    const db = getDatabase();
+    const favsToSend = [...this.state.favorites];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/favorites'), favsToSend);
   }
 };

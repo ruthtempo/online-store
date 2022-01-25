@@ -21,10 +21,17 @@ export default {
   props: {
     cartItem: Object,
   },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
   methods: {
     addToCart() {
       this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
-      console.log(this.$store.state.cart);
+      if (this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
     },
     updateQuantity(quantity){
       this.quantity = quantity

@@ -5,7 +5,10 @@
 <template>
   <button @click="$store.dispatch('toggleFavorites', favoriteItem)">
     <div v-if="$store.getters.getFavorite(favoriteItem)">
-      <IconHeartFilled/>
+      <IconBase>
+        <IconHeartSolid/>
+      </IconBase>
+      
     </div>
     <div v-else>
       <IconBase icon-name="favorite" strokeColor="#ffc04a">
@@ -22,13 +25,13 @@
 <script>
 import IconBase from "~/components/IconBase";
 import IconHeart from "~/components/icons/IconHeart";
-import IconHeartFilled from "~/components/icons/IconHeartFilled";
+import IconHeartSolid from "~/components/icons/IconHeartSolid";
 export default {
   name: "AddToFavorites",
   components: {
     IconBase,
     IconHeart,
-    IconHeartFilled
+    IconHeartSolid
   },
   props: {
     favoriteItem: Object,

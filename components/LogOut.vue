@@ -19,9 +19,12 @@ export default {
       signOut(auth)
         .then(() => {
           // Sign-out successful.
+          this.$store.commit('clearCurrentUser');
+          this.$store.commit('emptyCart');
+          this.$store.commit('emptyFavorites');
+          this.$router.push("/");
         })
         .catch((error) => {
-          // An error happened.
           console.log(error);
         });
     },
