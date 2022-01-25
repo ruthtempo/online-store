@@ -34,8 +34,12 @@
 	************************************************************************* -->
 
 <script>
+import QuantityInput from "../components/QuantityInput.vue"
 export default {
   name: "Cart",
+  components:{
+    QuantityInput
+  }
 };
 </script>
 

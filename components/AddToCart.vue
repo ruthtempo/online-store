@@ -3,7 +3,10 @@
 	************************************************************************* -->
 
 <template>
-  <button @click="addToCart">Add To Cart</button>
+  <div>
+    <QuantityInput :quantity="quantity" @onchange="updateQuantity"/>
+    <button @click="addToCart">Add To Cart</button>
+  </div>
 </template>
 
 <!-- *************************************************************************
@@ -11,17 +14,28 @@
 	************************************************************************* -->
 
 <script>
+import QuantityInput from "../components/QuantityInput.vue"
 export default {
   name: "AddToCart",
+  components: QuantityInput ,
   props: {
     cartItem: Object,
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addOrIncrease", this.cartItem);
+      this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
       console.log(this.$store.state.cart);
     },
+    updateQuantity(quantity){
+      this.quantity = quantity
+      console.log(quantity)
+    }
   },
+  data(){
+    return{
+      quantity:1
+    }
+  }
 };
 </script>
 
