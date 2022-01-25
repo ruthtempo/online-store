@@ -140,7 +140,7 @@ export const actions = {
     }else{
       context.commit("addToCart", {item, quantity})
     }
-    context.dispatch("updateDatabaseFavorites");
+    context.dispatch("updateDatabaseCart");
   },
   updateDatabaseCart() {
     const db = getDatabase();
