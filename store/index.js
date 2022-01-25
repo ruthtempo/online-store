@@ -52,7 +52,7 @@ export const mutations = {
   },
 
   addToCart(state, {item, quantity}) {
-    //create a new property "quantity" for the elements that are pushed in the cart
+  // Create a new property "quantity" for the elements that are pushed in the cart
     item['quantity'] = quantity
     state.cart.push(item);
   },
@@ -64,7 +64,17 @@ export const mutations = {
   },
   concatCarts(state, fetchedCart) {
     if (Array.isArray(fetchedCart)) {
-      state.cart = state.cart.concat(fetchedCart);
+      fetchedCart.forEach(fetchedItem => {
+        console.log(fetchedItem.id)
+        console.log(state.cart)
+        let index = state.cart.find(localItem => localItem.id == fetchedItem.id);
+        console.log(index)
+        if (index > -1) {
+          state.cart[index].quantity += fetchedItem.quantity;
+        } else {
+          state.cart.push(fetchedItem);
+        }
+      });
     }
   },
   // Auth
@@ -140,7 +150,6 @@ export const actions = {
     }else{
       context.commit("addToCart", {item, quantity})
     }
-    context.dispatch("updateDatabaseCart");
   },
   updateDatabaseCart() {
     const db = getDatabase();
