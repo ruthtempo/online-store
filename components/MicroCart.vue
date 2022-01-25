@@ -23,7 +23,7 @@
           <h3>{{ item.title }}</h3>
           <h4>{{ item.price }} €</h4>
         </div>
-        <button class="trash-button" @click="$store.commit('removeItem', item)">
+        <button class="trash-button" @click="removeItem(item)">
           <img class="trash" src="../assets/trash.svg" alt="" />
         </button>
       </div>
@@ -58,6 +58,19 @@ export default {
     IconCart,
     Popover,
   },
+  computed: {
+    isLoggedIn: function () {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
+  methods: {
+    removeItem(item) {
+      this.$store.commit('removeItem', item);
+      if(this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
+    },
+  }
 };
 </script>
 

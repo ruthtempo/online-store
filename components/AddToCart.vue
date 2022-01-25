@@ -16,10 +16,17 @@ export default {
   props: {
     cartItem: Object,
   },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
   methods: {
     addToCart() {
       this.$store.commit("addToCart", this.cartItem);
-      console.log(this.$store.state.cart);
+      if (this.isLoggedIn) {
+        this.$store.dispatch("updateDatabaseCart");
+      }
     },
   },
 };

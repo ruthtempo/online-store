@@ -1,9 +1,12 @@
+import { getDatabase, ref, set } from "firebase/database";
+
 // STATE
 export const state = () => ({
-  products: [],
-  user: null,
-  cart: [],
   sideNav: false,
+  products: [],
+  cart: [],
+  user: null,
+  currentUser: {},
   favorites: [],
 });
 
@@ -22,6 +25,16 @@ export const getters = {
     });
     return totalCost;
   },
+  getCart: (state) => {
+    return state.cart;
+  },
+  getCurrentUser: (state) => {
+    return state.currentUser;
+  },
+  isLoggedIn: (state) => {
+    return !!state.currentUser.id;
+  },
+  // Responsive layout
   getSideNavStatus: (state) => {
     return state.sideNav;
   },
@@ -32,17 +45,11 @@ export const getters = {
 
 // MUTATIONS
 export const mutations = {
+  // Populate the products array
   saveProducts(state, products) {
     state.products = products;
   },
-  onAuthStateChangedMutation(state, { authUser, claims }) {
-    if (!authUser) {
-      state.user = null;
-    } else {
-      const { email } = authUser;
-      state.user = { email };
-    }
-  },
+  // Cart mutations
   addToCart(state, item) {
     state.cart.push(item);
   },
@@ -52,15 +59,46 @@ export const mutations = {
   emptyCart(state) {
     state.cart = [];
   },
+  concatCarts(state, fetchedCart) {
+    if (Array.isArray(fetchedCart)) {
+      state.cart = state.cart.concat(fetchedCart);
+    }
+  },
+  // Auth
+  onAuthStateChangedMutation(state, { authUser, claims }) {
+    if (!authUser) {
+      state.user = null;
+    } else {
+      const { email, uid } = authUser;
+      state.user = { email, uid };
+    }
+  },
+  // currentUser 
+  setCurrentUser(state, userObject) {
+    state.currentUser = userObject;
+  },
+  clearCurrentUser(state) {
+    state.currentUser = {};
+  },
+  // Responsive layout (sideNav switcher)
   setSideNav(state) {
     state.sideNav = !state.sideNav;
   },
+  // Favorites mutations
   addToFavorites(state, item) {
     state.favorites.push(item);
     console.log(state.favorites);
   },
   removeFromFavorites(state, item){
     state.favorites= state.favorites.filter(product=> product.id!== item.id)
+  },
+  emptyFavorites(state) {
+    state.favorites = [];
+  },
+  concatFavorites(state, fetchedFavorites) {
+    if (Array.isArray(fetchedFavorites)) {
+      state.favorites = state.favorites.concat(fetchedFavorites);
+    }
   },
 };
 
@@ -77,10 +115,21 @@ export const actions = {
     commit("setSideNav");
   },
   toggleFavorites(context, item){
-    if(context.state.favorites.some(product=> product.id === item.id)){
-        context.commit("removeFromFavorites", item)
-    }else{
-        context.commit("addToFavorites",item)
+    if(context.state.favorites.some(product => product.id === item.id)){
+        context.commit("removeFromFavorites", item);
+    } else {
+        context.commit("addToFavorites",item);
     }
+    context.dispatch("updateDatabaseFavorites");
+  },
+  updateDatabaseCart() {
+    const db = getDatabase();
+    const cartToSend = [...this.state.cart];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/cart'), cartToSend);
+  },
+  updateDatabaseFavorites() {
+    const db = getDatabase();
+    const favsToSend = [...this.state.favorites];
+    set(ref(db, 'users/' + this.state.currentUser.id + '/favorites'), favsToSend);
   }
 };
