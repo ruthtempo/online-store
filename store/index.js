@@ -21,9 +21,10 @@ export const getters = {
   getTotal: (state) => {
     let totalCost = 0;
     state.cart.forEach((product) => {
-      totalCost += product.price;
+      totalCost += product.price * product.quantity;
     });
-    return totalCost;
+    //total with 2 decimals
+    return Math.round(totalCost * 100)/100;
   },
   getCart: (state) => {
     return state.cart;
@@ -49,8 +50,10 @@ export const mutations = {
   saveProducts(state, products) {
     state.products = products;
   },
-  // Cart mutations
-  addToCart(state, item) {
+
+  addToCart(state, {item, quantity}) {
+  // Create a new property "quantity" for the elements that are pushed in the cart
+    item['quantity'] = quantity
     state.cart.push(item);
   },
   removeItem(state, item) {
@@ -61,7 +64,17 @@ export const mutations = {
   },
   concatCarts(state, fetchedCart) {
     if (Array.isArray(fetchedCart)) {
-      state.cart = state.cart.concat(fetchedCart);
+      fetchedCart.forEach(fetchedItem => {
+        console.log(fetchedItem.id)
+        console.log(state.cart)
+        let index = state.cart.find(localItem => localItem.id == fetchedItem.id);
+        console.log(index)
+        if (index > -1) {
+          state.cart[index].quantity += fetchedItem.quantity;
+        } else {
+          state.cart.push(fetchedItem);
+        }
+      });
     }
   },
   // Auth
@@ -92,6 +105,15 @@ export const mutations = {
   removeFromFavorites(state, item){
     state.favorites= state.favorites.filter(product=> product.id!== item.id)
   },
+  increaseQuantity(state,{item, quantity}){
+    //check in cart and find element by id
+    let itemo = state.cart.find(product =>product.id === item.id)
+    //increase quantity property
+    itemo.quantity += quantity 
+    //copy of array so vue can detect deep nested changes
+    state.cart = state.cart.slice()
+  },
+  
   emptyFavorites(state) {
     state.favorites = [];
   },
@@ -120,7 +142,14 @@ export const actions = {
     } else {
         context.commit("addToFavorites",item);
     }
-    context.dispatch("updateDatabaseFavorites");
+  }, 
+  //if in the cart already, increase quantity. if not, add to cart
+  addOrIncrease(context, {item, quantity}){
+    if(context.state.cart.some(product=> product.id === item.id)){
+      context.commit("increaseQuantity", {item, quantity})
+    }else{
+      context.commit("addToCart", {item, quantity})
+    }
   },
   updateDatabaseCart() {
     const db = getDatabase();

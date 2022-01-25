@@ -60,9 +60,16 @@ export default {
           id: fetched.id
         }
         this.$store.commit('setCurrentUser', user);
-        this.$store.commit('concatCarts', fetched.cart);
+        this.addCarts(fetched.cart);
         this.$store.commit('concatFavorites', fetched.favorites);
       })
+    },
+    addCarts(cart) {
+      cart.forEach((fetchedItem) => {
+        let quantity = fetchedItem.quantity;
+        this.$store.dispatch("addOrIncrease", {item: fetchedItem, quantity});
+      });
+      this.$store.dispatch("updateDatabaseCart");
     },
     handleLogIn() {
       const auth = getAuth();

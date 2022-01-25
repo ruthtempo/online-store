@@ -10,7 +10,7 @@
       </div>
       <div class="product-info">
         <div>{{ product.title }}</div>
-        <div>{{ product.price }} €</div>
+        <div class="price">{{ product.price }} €</div>
       </div>
     </NuxtLink>
     <div class="action-buttons">
@@ -38,7 +38,7 @@ export default {
       type: Object,
       required: true,
     },
-  },
+  }
 };
 </script>
 
@@ -47,10 +47,7 @@ export default {
 	************************************************************************* -->
 
 <style scoped>
-div {
-  display: flex;
-  padding: 10px;
-}
+
 .productCard-container {
   display: flex;
   flex-direction: column;
@@ -76,10 +73,18 @@ div {
 
 .product-info {
   display: flex;
+  line-height: 25px;
+  text-align: justify;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  color:black
+}
+
+.price{
+  padding-top:20px;
+  font-size: 30px;
 }
 
 a {
@@ -87,11 +92,11 @@ a {
 }
 
 :visited {
-  color: blue;
+  color: black;
 }
 
 .action-buttons {
   display: flex;
-  justify-content: space-between;
+  align-items:flex-end;
 }
 </style>

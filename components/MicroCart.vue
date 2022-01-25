@@ -21,6 +21,7 @@
         </div>
         <div>
           <h3>{{ item.title }}</h3>
+          <p>Qty: {{item.quantity}}</p>
           <h4>{{ item.price }} €</h4>
         </div>
         <button @click="removeItem(item)">
@@ -118,9 +119,14 @@ h4 {
 
 .trash-button {
   display: flex;
-  background-color: #ffc04a;
+  align-self: flex-end;
+  width:60px;
+  background-color: transparent;
 }
 
+path{
+  fill: #ffc04a;
+}
 .img-wrap {
   display: flex;
 }

@@ -9,6 +9,7 @@
         <img :src="item.image" alt="" />
       </div>
       <h3>{{ item.title }}</h3>
+      <p>Quantity: {{item.quantity}}</p>
       <h4>Subtotal: {{ item.price }} €</h4>
       <button @click="removeItem(item)">
         <IconBase icon-name="remove-item" strokeColor="#ffc04a">
@@ -23,8 +24,8 @@
         Empty Cart
       </button>
     </div>
-    <div v-else>
-      <h1>Your Cart is Empty</h1>
+    <div v-else class="cart-empty">
+        <h1>Your Cart is Empty</h1>
       <button>
         <nuxt-link to="index.vue">Continue Shopping</nuxt-link>
       </button>
@@ -43,7 +44,7 @@ export default {
   name: "Cart",
   components: {
     IconBase,
-    IconTrash
+    IconTrash,
   },
   computed: {
     isLoggedIn: function () {
@@ -74,7 +75,8 @@ export default {
 <style scoped>
 .cart-wrapper {
   display: flex;
-  margin: 35px;
+  align-items: center;
+  justify-content: center;
 }
 img {
   height: 200px;
@@ -95,18 +97,31 @@ img {
 
 button {
   padding: 15px;
-  font-size: 15px;
+  font-size: 20px;
   border: none;
   border-radius: 5px;
-  background-color: gray;
+  background-color: #ffc04a;
 }
 
 button:hover {
-  background-color: darkgray;
+  background-color: lightgrey;
 }
 
 .total {
   font-size: 25px;
   padding: 20px;
+}
+
+.cart-empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top:200px;
+}
+
+a{
+  text-decoration: none;
+  color:white
 }
 </style>
