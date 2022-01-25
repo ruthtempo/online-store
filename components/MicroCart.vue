@@ -23,8 +23,10 @@
           <h3>{{ item.title }}</h3>
           <h4>{{ item.price }} €</h4>
         </div>
-        <button class="trash-button" @click="removeItem(item)">
-          <img class="trash" src="../assets/trash.svg" alt="" />
+        <button @click="removeItem(item)">
+          <IconBase icon-name="remove-item" strokeColor="#000">
+            <IconTrash/>
+          </IconBase>
         </button>
       </div>
       <div v-if="$store.state.cart.length != 0">
@@ -50,12 +52,14 @@
 <script>
 import IconBase from "~/components/IconBase";
 import IconCart from "~/components/icons/IconCart";
+import IconTrash from '~/components/icons/IconTrash';
 import Popover from "~/components/Popover";
 export default {
   name: "MicroCart",
   components: {
     IconBase,
     IconCart,
+    IconTrash,
     Popover,
   },
   computed: {
@@ -101,11 +105,6 @@ a {
 h3,
 h4 {
   font-size: 15px;
-}
-.trash {
-  display: flex;
-  max-width: 20px;
-  max-height: 20px;
 }
 
 .checkout-button {
