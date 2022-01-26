@@ -60,9 +60,11 @@ export default {
 
 <style scoped>
 .header-container {
+  height: 115px;
   display: flex;
   justify-content: space-between;
-  background: rgba(7, 7, 98, 1);
+  align-items: center;
+  background: #070762;
   font-family: "Source Code Pro", monospace;
   color: #ffc04a;
   padding: 1.8rem;
@@ -79,6 +81,7 @@ export default {
   margin: 0 auto;
 }
 .categories-nav {
+  height: 100px;
   display: flex;
 }
 @media (max-width: 1420px) {
