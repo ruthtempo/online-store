@@ -137,10 +137,10 @@ export const actions = {
     commit("setSideNav");
   },
   toggleFavorites(context, item){
-    //THIS COULD BE AN OPTION FOR REDIRECTING TO PAGE SIGN-IN IF NOT LOGGED IN.
+    //THIS COULD BE AN OPTION FOR REDIRECTING TO PAGE SIGN-UP IF NOT LOGGED IN.
     // INSTEAD I USED A NUXT-LINK CONDITIONAL IN TEMPLATE OF ADDTOFAVORITES
     // if(!context.getters.isLoggedIn){
-    //   this.$router.push('/sign-in')
+    //   this.$router.push('/sign-up')
     // } else 
     if(context.state.favorites.some(product => product.id === item.id)){
         context.commit("removeFromFavorites", item);

@@ -5,7 +5,7 @@
 <template>
   <div>
     <VTooltip v-if="!$store.getters.isLoggedIn" >
-      <Nuxt-link to="/sign-in">
+      <Nuxt-link to="/sign-up">
         <div class="invalid-heart" >
             <IconBase strokeColor="#ffc04a">
               <IconHeart />
