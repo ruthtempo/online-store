@@ -131,4 +131,13 @@ export default {
     width: 200px;
   }
 }
+
+@media (max-width: 400px) {
+  .icons-menu {
+    margin: 0 auto 0 0;
+  }
+  .logo {
+    margin: 0 1rem;
+  }
+}
 </style>
