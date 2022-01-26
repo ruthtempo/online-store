@@ -52,8 +52,8 @@ export default {
 
 <style>
 button {
+  display:flex;
   width: 150px;
-  display: flex;
   justify-content: center;
   padding: 15px;
   margin-top: 20px;
