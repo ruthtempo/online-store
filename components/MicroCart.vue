@@ -98,12 +98,12 @@ div {
 }
 .cart-length {
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: .9rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: .8rem;
   text-align: center;
-  line-height: 1.6;
-  background-color: #ff0000ee;
+  line-height: 1.7;
+  background-color: #ffc04ae8;
   color: #070762;
   border-radius: 50%;
   transform: translate(-20px, -20px);
