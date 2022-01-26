@@ -12,9 +12,11 @@
     "@nuxtjs/firebase": "^8.2.0",
     "core-js": "^3.19.3",
     "firebase": "^9.6.3",
+    "floating-vue": "^1.0.0-beta.5",
     "nuxt": "^2.15.8",
     "vee-validate": "^3.4.14",
     "vue": "^2.6.14",
+    "vue-js-popover": "^1.2.1",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
