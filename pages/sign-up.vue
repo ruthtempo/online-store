@@ -56,7 +56,9 @@
       </div>
       <div class="form-buttons">
         <button :disabled="invalid">Register</button>
-        <NuxtLink to="/">Cancel</NuxtLink>
+        <div class="button">
+          <NuxtLink to="/">Cancel</NuxtLink>
+        </div>
       </div>
     </ValidationObserver>
   </div>
@@ -142,16 +144,60 @@ export default {
 
 <style scoped>
 .form-container {
-  width: 80vw;
-  margin: 0 auto 3rem;
+  width: 355px;
+  margin: 0;
+  padding-top: 1rem;
+  padding-left: 5px;
+}
+@media (min-width: 430px) {
+  .form-container {
+    margin: 0 auto;
+  }
+}
+@media (min-width: 700px) {
+  .form-container {
+    width: 550px;
+  }
+}
+@media (min-width: 1420px) {
+  .form-container {
+    width: 620px;
+  }
 }
 .input-field {
   margin-top: 1rem;
 }
 .form-buttons {
-  margin-top: 2rem;
+  width: 360px;
+  margin: .9rem auto;
+  display: flex;
+  gap: 2rem;
 }
 .error {
   color: red;
+}
+.button {
+  display: block;
+  width: 150px;
+  padding: 15px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+  border: none;
+  border: 2px solid #07076288;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: darkgray;
+}
+.button a,
+.button a:visited {
+  text-decoration: none;
+  color: #070762aa;
 }
 </style>
