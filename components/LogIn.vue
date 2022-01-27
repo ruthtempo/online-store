@@ -93,7 +93,6 @@ export default {
           } else {
             console.log('code: ' + errorCode + ' ,message: ' + errorMessage);
           }
-          this.clearErrorMessages();
         });
     },
   },
