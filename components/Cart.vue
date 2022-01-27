@@ -20,7 +20,7 @@
       </div>
     </div>
     <div v-if="$store.state.cart.length != 0" class="basket">
-      <h2>MY BASKET ({{ $store.state.cart.length }})</h2>
+      <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
       <div class="total">Total: {{ $store.getters.getTotal }} €</div>
       <button class="confirm">Confirm Purchase</button>
       <div>
