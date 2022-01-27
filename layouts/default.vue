@@ -50,7 +50,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
 
