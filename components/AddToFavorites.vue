@@ -16,7 +16,7 @@
         Register or log in to save to Favorites
       </template>
     </VTooltip>
-    <button v-else @click="$store.dispatch('toggleFavorites', favoriteItem)">
+    <button v-else @click="toggleFavorite">
       <div v-if="$store.getters.getFavorite(favoriteItem)">
         <IconBase>
           <IconHeartSolid/>
@@ -50,6 +50,12 @@ export default {
   },
   props: {
     favoriteItem: Object,
+  },
+  methods: {
+    toggleFavorite() {
+      this.$store.dispatch('toggleFavorites', this.favoriteItem);
+      this.$store.dispatch("updateDatabaseFavorites");
+    }
   }
 };
 </script>

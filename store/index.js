@@ -50,11 +50,19 @@ export const mutations = {
   saveProducts(state, products) {
     state.products = products;
   },
-
+  // Cart mutations
   addToCart(state, {item, quantity}) {
   // Create a new property "quantity" for the elements that are pushed in the cart
     item['quantity'] = quantity
     state.cart.push(item);
+  },
+  increaseQuantity(state,{item, quantity}){
+    //check in cart and find element by id
+    let itemo = state.cart.find(product =>product.id === item.id)
+    //increase quantity property
+    itemo.quantity += quantity 
+    //copy of array so vue can detect deep nested changes
+    state.cart = state.cart.slice()
   },
   removeItem(state, item) {
     state.cart = state.cart.filter((product) => product.id !== item.id);
@@ -100,16 +108,7 @@ export const mutations = {
   },
   removeFromFavorites(state, item){
     state.favorites= state.favorites.filter(product=> product.id!== item.id)
-  },
-  increaseQuantity(state,{item, quantity}){
-    //check in cart and find element by id
-    let itemo = state.cart.find(product =>product.id === item.id)
-    //increase quantity property
-    itemo.quantity += quantity 
-    //copy of array so vue can detect deep nested changes
-    state.cart = state.cart.slice()
-  },
-  
+  },  
   emptyFavorites(state) {
     state.favorites = [];
   },

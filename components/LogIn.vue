@@ -64,8 +64,10 @@ export default {
           id: fetched.id
         }
         this.$store.commit('setCurrentUser', user);
-        this.addCarts(fetched.cart);
-        this.$store.commit('concatFavorites', fetched.favorites);
+        let fetchedCart = fetched.cart || [];
+        let fetchedFavorites = fetched.favorites || [];
+        this.addCarts(fetchedCart);
+        this.$store.commit('concatFavorites', fetchedFavorites);
       })
     },
     addCarts(cart) {
