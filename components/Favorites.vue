@@ -4,7 +4,7 @@
 
 <template>
   <div class="favorites-wrapper">
-    <Nuxt-link to="/favorite">
+    <Nuxt-link to="/favorite" class="favorites-link">
       <IconBase icon-name="favorites" strokeColor="#ffc04a">
         <IconHeart/>
       </IconBase>
@@ -32,6 +32,9 @@ export default {
 <style scoped>
 .favorites-wrapper {
   width: 62px;
+}
+.favorites-link {
+  text-decoration: none;
 }
 .favorites-length {
   display: inline-block;

@@ -75,9 +75,25 @@ export default {
   max-height: 70vh;
   overflow-y: auto;
   padding: 1.5rem;
-  background: rgba(7, 7, 98, 1);
+  background: #070762;
   border: 2px dashed #ffc04a;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  scrollbar-color: #ffc04a;
+}
+.popover-content::-webkit-scrollbar {
+  width: .8rem;
+}
+.popover-content::-webkit-scrollbar-thumb {
+  background: #ffc04a;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.popover-content::-webkit-scrollbar-track {
+  background: hsl(240, 40%, 30%);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 </style>

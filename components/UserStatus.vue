@@ -13,12 +13,12 @@
     </template>
 
     <template v-slot:content>
-      <p class="message">
+      <p class="login-status">
         {{ user.id ? `Logged in as ${user.userName}` : "You're not logged in" }}
       </p>
       <div v-if="!user.id">
         <LogIn />
-        <p class="message">
+        <p class="signup-message">
           Don't have an account? <NuxtLink to="/sign-up">Sign Up</NuxtLink>
         </p>
       </div>
@@ -67,10 +67,19 @@ export default {
 	************************************************************************* -->
 
 <style scoped>
-.message {
+.login-status,
+.signup-message {
   font-family: "Source Code Pro", monospace;
   color: #ffc04a;
 }
+.login-status {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.signup-message {
+  margin-bottom: .5rem;
+}
+
 a {
   text-decoration: none;
   color: white;
