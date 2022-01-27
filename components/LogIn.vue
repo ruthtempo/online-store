@@ -96,11 +96,19 @@ export default {
           this.clearErrorMessages();
         });
     },
-    clearErrorMessages() {
-      setTimeout(() => {
+  },
+  watch: {
+    email: function (newVal, oldVal) {
+      if (this.userNotFound === true || this.wrongPassword === true) {
         this.userNotFound = false;
-        this.wrongPassword =false;
-      }, 5000)
+        this.wrongPassword = false;
+      }
+    },
+    password: function (newVal, oldVal) {
+      if (this.userNotFound === true || this.wrongPassword === true) {
+        this.userNotFound = false;
+        this.wrongPassword = false;
+      }
     }
   },
 };
