@@ -27,7 +27,7 @@
       v-model="password"
     />
     <div v-if="wrongPassword" class="error">Wrong password</div>
-    <button :disabled="invalid">Log In</button>
+    <button :disabled="invalid" class="login-button">Log In</button>
   </ValidationObserver>
 </template>
 
@@ -118,5 +118,13 @@ export default {
 <style scoped>
 .error {
   color: red;
+}
+.login-button {
+  margin-top: 1.4rem;
+}
+
+.login-button:disabled {
+  background-color: gray;
+  color: #3f3f3f;
 }
 </style>

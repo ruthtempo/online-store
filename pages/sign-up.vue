@@ -55,7 +55,7 @@
         An account with this email adress already exists.
       </div>
       <div class="form-buttons">
-        <button :disabled="invalid">Register</button>
+        <button :disabled="invalid" class="register-button">Register</button>
         <div class="button">
           <NuxtLink to="/">Cancel</NuxtLink>
         </div>
@@ -199,5 +199,10 @@ export default {
 .button a:visited {
   text-decoration: none;
   color: #070762aa;
+}
+
+.register-button:disabled {
+  background-color: gray;
+  color: #3f3f3f;
 }
 </style>

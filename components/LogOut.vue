@@ -3,7 +3,7 @@
 	************************************************************************* -->
 
 <template>
-  <button @click="handleLogOut">Log Out</button>
+  <button @click="handleLogOut" class="logout-button">Log Out</button>
 </template>
 
 <!-- *************************************************************************
@@ -31,3 +31,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.logout-button {
+  margin-bottom: .5rem;
+}
+</style>
