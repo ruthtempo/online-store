@@ -149,6 +149,16 @@ export default {
   padding-top: 1rem;
   padding-left: 5px;
 }
+
+h2{
+  display:flex;
+  justify-content: center;
+}
+.register-form{
+  background-color: whitesmoke;
+  padding:50px;
+  border-radius:15px;
+}
 @media (min-width: 430px) {
   .form-container {
     margin: 0 auto;
@@ -188,16 +198,16 @@ export default {
   text-align: center;
   color: black;
   border: none;
-  border: 2px solid #07076288;
+  border: 2px solid rgba(7, 7, 98, 1);
   border-radius: 5px;
   cursor: pointer;
 }
 .button:hover {
-  background-color: darkgray;
+  background-color: lightgray;
 }
 .button a,
 .button a:visited {
   text-decoration: none;
-  color: #070762aa;
+  color: rgba(7, 7, 98, 1);
 }
 </style>
