@@ -11,11 +11,12 @@
     >
       <IconBase icon-name="menu" strokeColor="#ffc04a"><IconBurger /></IconBase>
     </div>
-    <img
-      src="~/assets/logo2.png"
-      alt="PixelFashion - Clothing And Gadgets"
-      class="logo"
-    />
+    <NuxtLink to="/" class="logo">
+      <img
+        src="~/assets/logo2.png"
+        alt="PixelFashion - Clothing And Gadgets"
+      />
+    </NuxtLink>
     <div class="categories-nav">
       <CategoriesNav />
     </div>
