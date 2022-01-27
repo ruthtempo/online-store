@@ -13,7 +13,7 @@
     </div>
     <NuxtLink to="/" class="logo">
       <img
-        src="~/assets/logo2.png"
+        src="~/assets/logo.png"
         alt="PixelFashion - Clothing And Gadgets"
       />
     </NuxtLink>
