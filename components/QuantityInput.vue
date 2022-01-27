@@ -1,8 +1,8 @@
 <template>
   <div class="input-form">
-    <div class="value-button" id="decrease" @click="decrease" >-</div>
+    <div class="value-button decrease" id="decrease" @click="decrease" >-</div>
     <input type="number" id="number" :value="quantity" />
-    <div class="value-button" id="increase" @click="increase" >+</div>
+    <div class="value-button increase" id="increase" @click="increase" >+</div>
  </div>
 </template>
 
@@ -52,14 +52,21 @@ export default {
   cursor: pointer;
 }
 
-form #decrease {
-  margin-right: -4px;
+.decrease {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px 0 0 8px;
+  font-size: 20px;
 }
 
-form #increase {
-  margin-left: -4px;
+.increase {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: -4px; */
   border-radius: 0 8px 8px 0;
+  font-size: 20px;
 }
 
 form #input-wrap {

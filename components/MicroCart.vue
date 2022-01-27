@@ -9,14 +9,14 @@
         <IconBase icon-name="cart" strokeColor="#ffc04a">
           <IconCart />
         </IconBase>
-        <span v-if="$store.state.cart.length > 0" class="cart-length">{{ $store.state.cart.length }}</span>
+        <span v-if="$store.state.cart.length > 0" class="cart-length">{{ $store.getters.getCartTotalProducts }}</span>
       </nuxt-link>
     </template>
 
     <template v-slot:content>
       <!-- full cart div -->
       <div v-if="$store.state.cart.length != 0" class="full-cart">
-        <h2 class="cart-header">My Basket<span class="number-of-items">({{ $store.state.cart.length }})</span></h2>
+        <h2 class="cart-header">My Basket<span class="number-of-items">({{ $store.getters.getCartTotalProducts }})</span></h2>
         <ul class="cart-items-list">
           <li v-for="item in $store.state.cart" :key="item.id" class="item-box">
             <div class="img-wrap">
