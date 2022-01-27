@@ -17,6 +17,7 @@
       veeValidateRules="required|email"
       v-model="email"
     />
+    <div v-if="userNotFound" class="error">User not found</div>
     <InputField
       class="input-field"
       type="password"
@@ -25,6 +26,7 @@
       veeValidateRules="required|alpha_dash|min:8"
       v-model="password"
     />
+    <div v-if="wrongPassword" class="error">Wrong password</div>
     <button :disabled="invalid">Log In</button>
   </ValidationObserver>
 </template>
@@ -45,6 +47,8 @@ export default {
     return {
       email: "",
       password: "",
+      userNotFound: false,
+      wrongPassword: false
     };
   },
   methods: {
@@ -82,9 +86,35 @@ export default {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
+          if (errorCode === 'auth/user-not-found') {
+            this.userNotFound = true;
+          } else if (errorCode === 'auth/wrong-password' && this.userNotFound !== true) {
+            this.wrongPassword = true;
+          } else {
+            console.log('code: ' + errorCode + ' ,message: ' + errorMessage);
+          }
         });
     },
   },
+  watch: {
+    email: function (newVal, oldVal) {
+      if (this.userNotFound === true || this.wrongPassword === true) {
+        this.userNotFound = false;
+        this.wrongPassword = false;
+      }
+    },
+    password: function (newVal, oldVal) {
+      if (this.userNotFound === true || this.wrongPassword === true) {
+        this.userNotFound = false;
+        this.wrongPassword = false;
+      }
+    }
+  },
 };
 </script>
+
+<style scoped>
+.error {
+  color: red;
+}
+</style>
