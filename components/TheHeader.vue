@@ -11,12 +11,15 @@
     >
       <IconBase icon-name="menu" strokeColor="#ffc04a"><IconBurger /></IconBase>
     </div>
-    <NuxtLink to="/" class="logo">
-      <img
-        src="~/assets/logo.png"
-        alt="PixelFashion - Clothing And Gadgets"
-      />
-    </NuxtLink>
+    <div class="logo">
+      <NuxtLink to="/">
+        <img
+          src="~/assets/logo.png"
+          alt="PixelFashion - Clothing And Gadgets"
+          class="logo-img"
+        />
+      </NuxtLink>
+    </div>
     <div class="categories-nav">
       <CategoriesNav />
     </div>
@@ -77,6 +80,7 @@ export default {
 }
 
 .logo {
+  display: block;
   width: 300px;
   height: 90px;
   margin: 0 auto;
@@ -130,7 +134,8 @@ export default {
 }
 
 @media (max-width: 460px) {
-  .logo {
+  .logo,
+  .logo-img {
     height: 64px;
     width: 200px;
   }
