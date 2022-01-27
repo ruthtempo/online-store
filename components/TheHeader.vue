@@ -99,7 +99,7 @@ export default {
   margin: 0 auto;
 }
 .icons-menu div {
-  padding: 20px;
+  padding: 20px 0 20px 5px;
 }
 .sidenav-toggle {
   align-self: center;
