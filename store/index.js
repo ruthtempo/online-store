@@ -41,6 +41,11 @@ export const getters = {
   },
   getFavorite: state=>(item)=>{
     return state.favorites.some(product => product.id === item.id)
+  },
+  getCartTotalProducts: state =>{
+    let totalProducts = 0;
+    state.cart.forEach(product => totalProducts += product.quantity)
+    return totalProducts
   }
 };
 
