@@ -11,10 +11,10 @@
       <li><NuxtLink to="#">Contact information</NuxtLink></li>
     </ul>
     <div class="right">
-      <IconBase><IconFacebook/></IconBase>
-      <IconBase><IconInstagram/></IconBase>
-      <IconBase><IconPinterest/></IconBase>
-      <IconBase><IconYoutube/></IconBase>
+      <IconBase class="link-ish"><IconFacebook/></IconBase>
+      <IconBase class="link-ish"><IconInstagram/></IconBase>
+      <IconBase class="link-ish"><IconPinterest/></IconBase>
+      <IconBase class="link-ish"><IconYoutube/></IconBase>
       <p>&copy; 2022</p>
     </div>
   </div>
@@ -54,11 +54,22 @@ export default {
   /* background: linear-gradient(354deg, rgb(44, 48, 53) 0%, rgba(7,7,98,1) 100%); */
   color: #ffc04a;
 }
+@media (max-width: 460px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 460px) {
+  .footer-container {
+    padding-bottom: 2rem;
+  }
+}
 
 .left {
   list-style: none;
   width: 22ch;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   padding: 0;
   text-transform: uppercase;
 }
@@ -74,6 +85,10 @@ export default {
 
 .right {
   width: 22ch;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
+}
+
+.link-ish {
+  cursor: pointer;
 }
 </style>
