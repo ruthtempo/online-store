@@ -50,9 +50,15 @@ export default {
     display:flex;
     height:300px;
     padding: 30px;
-    margin:10px;
+    margin:20px;
 }
 
+.product-details{
+    display:flex;
+    width:70%;
+    padding-left:30px;
+    flex-direction: column;
+}
 
 .action-buttons{
     display:flex;
