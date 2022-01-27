@@ -65,10 +65,7 @@ export const mutations = {
   concatCarts(state, fetchedCart) {
     if (Array.isArray(fetchedCart)) {
       fetchedCart.forEach(fetchedItem => {
-        console.log(fetchedItem.id)
-        console.log(state.cart)
         let index = state.cart.find(localItem => localItem.id == fetchedItem.id);
-        console.log(index)
         if (index > -1) {
           state.cart[index].quantity += fetchedItem.quantity;
         } else {
@@ -100,7 +97,6 @@ export const mutations = {
   // Favorites mutations
   addToFavorites(state, item) {
     state.favorites.push(item);
-    console.log(state.favorites);
   },
   removeFromFavorites(state, item){
     state.favorites= state.favorites.filter(product=> product.id!== item.id)

@@ -35,7 +35,6 @@ export default {
     },
     updateQuantity(quantity){
       this.quantity = quantity
-      console.log(quantity)
     }
   },
   data(){

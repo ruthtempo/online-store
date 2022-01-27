@@ -19,7 +19,6 @@ import ProductCard from '../components/ProductCard.vue'
 export default {
   components:ProductCard,
   middleware({store, redirect}){
-    console.log(typeof store.getters.isLoggedIn)
     if(!store.getters.isLoggedIn){
       return redirect('/sign-up')
     }

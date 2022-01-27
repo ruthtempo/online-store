@@ -32,7 +32,6 @@ export default {
     },
      computed: {
         product() {
-            console.log( typeof this.$route.params.productId)
             return this.$store.getters.getProduct( this.$route.params.productId);
         }
     }
