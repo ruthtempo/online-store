@@ -21,7 +21,7 @@ export default {
   middleware({store, redirect}){
     console.log(typeof store.getters.isLoggedIn)
     if(!store.getters.isLoggedIn){
-      return redirect('/sign-in')
+      return redirect('/sign-up')
     }
   }
 }

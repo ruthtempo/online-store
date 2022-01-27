@@ -59,6 +59,12 @@ export default {
   transform: translate(0, -20px);
   transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
 }
+.popover-title {
+  width: 62px;
+}
+.popover-title a {
+  text-decoration: none;
+}
 .popover-content {
   opacity: 0;
   visibility: hidden;

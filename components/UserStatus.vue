@@ -19,7 +19,7 @@
       <div v-if="!user.id">
         <LogIn />
         <p class="message">
-          Don't have an account? <NuxtLink to="/sign-in">Sign In</NuxtLink>
+          Don't have an account? <NuxtLink to="/sign-up">Sign Up</NuxtLink>
         </p>
       </div>
       <LogOut v-if="user.id" />

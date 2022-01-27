@@ -59,8 +59,10 @@ button {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #ffc04a;
-  font-size: 15px;
-  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
