@@ -3,12 +3,14 @@
 	************************************************************************* -->
 
 <template>
-  <Nuxt-link to="/favorite">
-    <IconBase icon-name="favorites" strokeColor="#ffc04a">
-      <IconHeart/>
-    </IconBase>
-    ({{$store.state.favorites.length}})
-  </Nuxt-link>
+  <div class="favorites-wrapper">
+    <Nuxt-link to="/favorite">
+      <IconBase icon-name="favorites" strokeColor="#ffc04a">
+        <IconHeart/>
+      </IconBase>
+      <span v-if="$store.state.favorites.length > 0" class="favorites-length">{{$store.state.favorites.length}}</span>
+    </Nuxt-link>
+  </div>
 </template>
 <script>
 import IconBase from "~/components/IconBase";
@@ -28,9 +30,20 @@ export default {
 </script>
 
 <style scoped>
-a, a:visited{
-  text-decoration: none;
-  color:#ffc04a !important;
+.favorites-wrapper {
+  width: 62px;
+}
+.favorites-length {
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: .8rem;
+  text-align: center;
+  line-height: 1.7;
+  background-color: #ffc04ae8;
+  color: #070762;
+  border-radius: 50%;
+  transform: translate(-20px, -20px);
 }
 
 </style>
