@@ -200,7 +200,6 @@ export default {
   text-decoration: none;
   color: #070762aa;
 }
-
 .register-button:disabled {
   background-color: gray;
   color: #3f3f3f;
