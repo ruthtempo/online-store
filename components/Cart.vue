@@ -25,16 +25,16 @@
     </div>
     <div v-if="$store.state.cart.length != 0"  class="payment">
       <div class="data-form">
-        <h2>MY DATA</h2> 
-          <form action="">
+        <h2>MY DATA</h2>
+          <form>
             <div class="input-section">
-              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Name" required>
             </div>
             <div class="input-section">
-              <input type="text" placeholder="Last Name">
+              <input type="text" placeholder="Last Name" required>
             </div>
             <div class="input-section">
-              <input type="text" placeholder="Email">
+              <input type="e-mail" placeholder="Email" required>
             </div>
             <div class="input-section">
               <input type="text" placeholder="Address">
@@ -58,7 +58,7 @@
             </div>
            <div class="comments">
             <h4>Comments about the order</h4>
-            <textarea name="" id=""></textarea>
+            <textarea id="" placeholder="Include a comment about the order, transport, schedules or others"></textarea>
            </div>
           </div>
       </div>
@@ -97,6 +97,7 @@
 <script>
 import IconBase from '~/components/IconBase.vue'
 import IconTrash from '~/components/icons/IconTrash.vue'
+
 export default {
   name: "Cart",
   components: {
@@ -144,7 +145,6 @@ img {
   display:flex;
   flex-wrap:wrap;
   max-width:30%;
-  max-height: 100px;
 }
 
 .basket{
