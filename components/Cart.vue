@@ -23,33 +23,35 @@
         </div>
       </div>
     </div>
-    <div v-if="$store.state.cart.length != 0" class="basket">
-      <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
-      <div class="total">
-        TOTAL: {{ $store.getters.getTotal }} €
-      </div>
-      <button  @click="emptyCart" class="confirm">
-        Confirm Purchase
-      </button>
+    <div v-if="$store.state.cart.length != 0"  class="payment">
       <div class="data-form">
-       <h5>MY DATA</h5> 
-        <form action="">
-          <div class="input-section">
-            <input type="text" placeholder="Name">
-          </div>
-          <div class="input-section">
-            <input type="text" placeholder="Last Name">
-          </div>
-          <div class="input-section">
-            <input type="text" placeholder="Email">
-          </div>
-          <div class="input-section">
-            <input type="text" placeholder="Address">
-          </div>
-          <div class="input-section">
-            <input type="text" placeholder="Country">
-          </div>
-        </form>
+        <h2>MY DATA</h2> 
+          <form action="">
+            <div class="input-section">
+              <input type="text" placeholder="Name">
+            </div>
+            <div class="input-section">
+              <input type="text" placeholder="Last Name">
+            </div>
+            <div class="input-section">
+              <input type="text" placeholder="Email">
+            </div>
+            <div class="input-section">
+              <input type="text" placeholder="Address">
+            </div>
+            <div class="input-section">
+              <input type="text" placeholder="Country">
+            </div>
+          </form>
+      </div>
+      <div class="basket">
+        <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
+        <div class="total">
+          TOTAL: {{ $store.getters.getTotal }} €
+        </div>
+        <button  @click="emptyCart" class="confirm">
+          Confirm Purchase
+        </button>
       </div>
     </div>
     <div v-else class="cart-empty">
@@ -103,13 +105,12 @@ export default {
 <style scoped>
 .cart-wrapper {
   display: flex;
-  align-items: flex-start;
   justify-content: center;
-  padding-left:50px;
+  margin-bottom:20px;
 }
 img {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   padding-right: 20px;
 }
 .products{
@@ -118,12 +119,11 @@ img {
   max-width:40%;
 }
 
-
-
 .basket{
   display:flex;
   margin-left:20px;
   margin-top:20px;
+  padding:20px;
   flex-direction: column;
   align-items: center;
   width:50%;
@@ -138,7 +138,7 @@ img {
   align-items: center;
   background-color: whitesmoke;
   padding: 20px;
-  margin: 20px;
+  margin-top: 20px;
   border-radius: 20px;
 }
 
@@ -152,7 +152,6 @@ img {
 .total {
   display:flex;
   justify-content: center;
-  width:80%;
   font-size: 25px;
   padding: 20px;
   border-bottom: 1px solid black;
@@ -160,6 +159,10 @@ img {
 
 h4,h5{
   margin:10px;
+}
+h2{
+  color:black;
+  text-shadow: 2px 2px #ffc04a;
 }
 
 /*BUTTONS*/
@@ -203,14 +206,19 @@ a{
 }
 
 /*FORM */
+.payment{
+  display:flex;
+}
+
 .data-form{
   display:flex;
   width:60%;
   flex-direction: column;
-  padding:10px;
+  padding:20px;
   border-radius:10px;
   align-items: center;
-  background-color: #ffc04a;
+  margin-top:20px;
+  background-color: lightgrey;
 }
 
 form{
