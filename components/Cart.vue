@@ -9,24 +9,47 @@
         <div>
           <img :src="item.image" alt="" />
         </div>
-        <h3>{{ item.title }}</h3>
-        <p>Quantity: {{item.quantity}}</p>
-        <h4>Subtotal: {{ item.price }} €</h4>
-        <button @click="removeItem(item)">
-          <IconBase icon-name="remove-item" strokeColor="#000000">
-            <IconTrash/>
-          </IconBase>
-        </button>
+        <div class="product-parts">
+          <div>
+            <h4>{{ item.title }}</h4>
+            <h5>QTY: {{item.quantity}}</h5>
+            <h5>SUBTOTAL: {{ item.price }} €</h5>
+          </div>
+          <button class="remove-btn" @click="removeItem(item)">
+            <IconBase icon-name="remove-item" strokeColor="#000000">
+              <IconTrash/>
+            </IconBase>
+          </button>
+        </div>
       </div>
     </div>
     <div v-if="$store.state.cart.length != 0" class="basket">
       <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
-      <div class="total">Total: {{ $store.getters.getTotal }} €</div>
-      <button class="confirm">Confirm Purchase</button>
-      <div>
-        <button @click="emptyCart" class="empty-action">
-          Empty Cart
-        </button>
+      <div class="total">
+        TOTAL: {{ $store.getters.getTotal }} €
+      </div>
+      <button  @click="emptyCart" class="confirm">
+        Confirm Purchase
+      </button>
+      <div class="data-form">
+       <h5>MY DATA</h5> 
+        <form action="">
+          <div class="input-section">
+            <input type="text" placeholder="Name">
+          </div>
+          <div class="input-section">
+            <input type="text" placeholder="Last Name">
+          </div>
+          <div class="input-section">
+            <input type="text" placeholder="Email">
+          </div>
+          <div class="input-section">
+            <input type="text" placeholder="Address">
+          </div>
+          <div class="input-section">
+            <input type="text" placeholder="Country">
+          </div>
+        </form>
       </div>
     </div>
     <div v-else class="cart-empty">
@@ -83,34 +106,35 @@ export default {
   align-items: flex-start;
   justify-content: center;
   padding-left:50px;
-  padding-right:50px;
 }
 img {
   height: 200px;
   width: 200px;
+  padding-right: 20px;
 }
 .products{
   display:flex;
   flex-wrap:wrap;
-  width:70%;
+  max-width:40%;
 }
+
 
 
 .basket{
   display:flex;
-  margin-top:50px;
+  margin-left:20px;
+  margin-top:20px;
   flex-direction: column;
   align-items: center;
-  width:40%;
+  width:50%;
   background-color: whitesmoke;
   border-radius: 10px;
 }
 
 .product-box {
-  width: 30%;
+  width: 90%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
   align-items: center;
   background-color: whitesmoke;
   padding: 20px;
@@ -118,10 +142,26 @@ img {
   border-radius: 20px;
 }
 
+.product-parts{
+  display:flex;
+  width:70%;
+  justify-content: space-between;
+  padding:10px;
+}
+
 .total {
+  display:flex;
+  justify-content: center;
+  width:80%;
   font-size: 25px;
   padding: 20px;
+  border-bottom: 1px solid black;
 }
+
+h4,h5{
+  margin:10px;
+}
+
 /*BUTTONS*/
 
 button {
@@ -140,6 +180,13 @@ button:hover {
   background-color: lightgrey;
 }
 
+.remove-btn{
+  display:flex;
+  align-items: center;
+  width:50px;
+  height:50px;
+  margin:5px;
+}
 
 .cart-empty{
   display: flex;
@@ -150,16 +197,42 @@ button:hover {
   width:100%;
 }
 
-.empty-action{
-  background-color: lightgray;
-}
-
-.empty-action:hover{
-  background-color: red;
-}
-
 a{
   text-decoration: none;
   color:white
 }
+
+/*FORM */
+.data-form{
+  display:flex;
+  width:60%;
+  flex-direction: column;
+  padding:10px;
+  border-radius:10px;
+  align-items: center;
+  background-color: #ffc04a;
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  width:90%;
+}
+.input-section{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+input{
+  display: flex;
+  width:400px;
+  height: 20px;;
+  border-radius:5px;
+  border-style:none;
+  margin:5px;
+  padding:10px;
+  font-size: 15px;
+}
+
+
 </style>
