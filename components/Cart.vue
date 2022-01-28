@@ -43,11 +43,36 @@
               <input type="text" placeholder="Country">
             </div>
           </form>
+          <div class="payment-section">
+           <h2>PAYMENT AND SHIPPING</h2>
+           <div class="payment-method">
+             <h4>Payment System</h4>
+             <div class="payment-options">
+              <input class="ratio" type="radio" id="credit">
+              <label for="credit">Credit Cart</label>
+             </div>
+             <div class="payment-options">
+              <input class="ratio" type="radio" id="credit">
+              <label for="credit">Bizum</label>
+             </div>
+            </div>
+           <div class="comments">
+            <h4>Comments about the order</h4>
+            <textarea name="" id=""></textarea>
+           </div>
+          </div>
       </div>
       <div class="basket">
         <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
         <div class="total">
           TOTAL: {{ $store.getters.getTotal }} €
+        </div>
+        <div class="promotional-code">
+          <h4>Promotional Code</h4>
+          <input type="text" placeholder="Do you have a promo code?">
+          <button>
+            APPLY
+          </button>
         </div>
         <button  @click="emptyCart" class="confirm">
           Confirm Purchase
@@ -116,7 +141,8 @@ img {
 .products{
   display:flex;
   flex-wrap:wrap;
-  max-width:40%;
+  max-width:30%;
+  max-height: 100px;
 }
 
 .basket{
@@ -154,7 +180,7 @@ img {
   justify-content: center;
   font-size: 25px;
   padding: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dotted black;
 }
 
 h4,h5{
@@ -176,11 +202,12 @@ button {
 }
 
 .confirm:hover{
-  background-color: green;
+  background-color: rgba(7, 7, 98, 1);
 }
 
 button:hover {
   background-color: lightgrey;
+  color:white;
 }
 
 .remove-btn{
@@ -233,7 +260,7 @@ form{
 }
 input{
   display: flex;
-  width:400px;
+  width:300px;
   height: 20px;;
   border-radius:5px;
   border-style:none;
@@ -242,5 +269,52 @@ input{
   font-size: 15px;
 }
 
+.payment-section{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.payment-method{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.payment-options{
+  display: flex;
+  width:300px;
+  align-items: center;
+  padding:5px;
+  margin:5px;
+  border-radius:5px;
+  background-color: whitesmoke;
+}
+
+.ratio{
+  display: flex;
+  width:20px;
+  cursor: pointer;
+}
+.promotional-code{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:15px;
+  border-bottom:1px dotted black;
+}
+
+.comments{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea{
+  border-style: none;
+  border-radius:10px;
+  padding:5px;
+  max-height: 50px;
+  max-width: 300px;
+}
 </style>
