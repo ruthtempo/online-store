@@ -48,12 +48,12 @@
            <div class="payment-method">
              <h4>Payment System</h4>
              <div class="payment-options">
-              <input class="ratio" type="radio" id="credit">
-              <label for="credit">Credit Cart</label>
+              <input class="ratio" type="radio" id="credit" name="payment">
+              <label for="credit">Credit Card</label>
              </div>
              <div class="payment-options">
-              <input class="ratio" type="radio" id="credit">
-              <label for="credit">Bizum</label>
+              <input class="ratio" type="radio" id="bizum" name="payment">
+              <label for="bizum">Bizum</label>
              </div>
             </div>
            <div class="comments">
@@ -74,9 +74,11 @@
             APPLY
           </button>
         </div>
-        <button  @click="emptyCart" class="confirm">
-          Confirm Purchase
-        </button>
+        <Nuxt-link to="/confirmation">
+          <button  @click="emptyCart" class="confirm">
+            Confirm Purchase
+          </button>
+        </Nuxt-link>
       </div>
     </div>
     <div v-else class="cart-empty">
@@ -314,7 +316,8 @@ textarea{
   border-style: none;
   border-radius:10px;
   padding:5px;
-  max-height: 50px;
+  max-height: 80px;
+  min-width:300px;
   max-width: 300px;
 }
 </style>
