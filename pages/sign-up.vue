@@ -4,13 +4,13 @@
 
 <template>
   <div class="form-container">
-    <h2>Register</h2>
     <ValidationObserver
       tag="form"
       v-slot="{ invalid }"
       class="register-form"
       @submit.prevent="handleSubmit"
     >
+    <h2 class="signup-header">Register</h2>
       <InputField
         class="input-field"
         type="text"
@@ -149,15 +149,10 @@ export default {
   padding-top: 1rem;
   padding-left: 5px;
 }
-
-h2{
-  display:flex;
-  justify-content: center;
-}
 .register-form{
-  background-color: whitesmoke;
-  padding:50px;
-  border-radius:15px;
+  background-color: lightgray;
+  padding:20px 50px;
+  border-radius:10px;
 }
 @media (min-width: 430px) {
   .form-container {
@@ -174,8 +169,14 @@ h2{
     width: 620px;
   }
 }
+.signup-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
+  text-shadow: 2px 2px #ffc04a;
+}
 .input-field {
-  margin-top: 1rem;
+  margin-top: .6rem;
 }
 .form-buttons {
   width: 360px;
