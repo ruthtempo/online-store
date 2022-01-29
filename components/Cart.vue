@@ -69,11 +69,17 @@
         </div>
         <div class="promotional-code">
           <h4>Promotional Code</h4>
-          <input type="text" placeholder="Do you have a promo code?">
-          <button>
+          <input type="text" placeholder="Do you have a promo code?" v-model="code">
+          <button type="submit" @click="checkCoupon(code)">
             APPLY
           </button>
         </div>
+        <div v-if="this.value" class="final-price-wrap">
+            <div>{{couponMessage}}</div>
+            <p>TO PAY:</p>
+            <div class="final-price">{{$store.getters.getFinalPrice}} €</div>
+          </div>
+          <div v-else>{{couponMessage}}</div>
         <Nuxt-link to="/confirmation">
           <button  @click="emptyCart" class="confirm">
             Confirm Purchase
@@ -104,6 +110,14 @@ export default {
     IconBase,
     IconTrash,
   },
+  data(){
+    return{
+      value:false,
+      code: '',
+      couponMessage:'',
+      coupon: this.$store.state.coupon,
+    }
+  },
   computed: {
     isLoggedIn: function () {
       return this.$store.getters.isLoggedIn;
@@ -121,7 +135,19 @@ export default {
       if(this.isLoggedIn) {
         this.$store.dispatch("updateDatabaseCart");
       }
+    },
+    checkCoupon(input){
+      if(this.coupon.code === input){
+        this.couponMessage  = 'Great! ' + this.coupon.discount + '% has been applied.';
+        this.value = true
+        this.code = ''
+      }else{
+        this.couponMessage = 'Sorry, that coupon does not exist.';
+        this.value = false
+        this.code = ''
+
     }
+  }
   }
 };
 </script>
@@ -185,6 +211,22 @@ img {
   border-bottom: 1px dotted black;
 }
 
+.final-price-wrap{
+  display:flex;
+  padding-top: 20px;
+  align-items: center;
+  flex-direction: column;
+}
+.final-price{
+  display:flex;
+  border-style: dotted;
+  border-color: #ffc04a;
+  border-radius: 5px;
+  width:80px;
+  justify-content: center;
+  font-size: 25px;
+  padding: 20px;
+}
 h4,h5{
   margin:10px;
 }
