@@ -38,9 +38,11 @@
         </ul>
         <div>
           <p class="total">Total: <span class="total-number">{{ $store.getters.getTotal }} €</span></p>
-          <button class="checkout-button">
-            <nuxt-link to="/checkout">Buy Now</nuxt-link>
-          </button>
+          <nuxt-link to="/checkout" class="checkout-link">
+            <button class="checkout-button">
+              Buy Now
+            </button>
+          </nuxt-link>
         </div>
       </div>
       <!-- empty cart div -->
@@ -196,7 +198,7 @@ div {
   margin: 1.5rem auto 1rem;
   background-color: #ffc04a;
 }
-.checkout-button a {
+.checkout-link {
     color: black;
     text-decoration: none;
 }
