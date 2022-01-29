@@ -8,6 +8,10 @@ export const state = () => ({
   user: null,
   currentUser: {},
   favorites: [],
+  coupon:{
+    code: "itacademy",
+    discount:15
+  }, 
 });
 
 // GETTERS
@@ -46,7 +50,19 @@ export const getters = {
     let totalProducts = 0;
     state.cart.forEach(product => totalProducts += product.quantity)
     return totalProducts
-  }
+  },
+  getFinalPrice: (state, getters)=>{
+    if(state.coupon.code){
+      const discount = getters.getTotal / 100 * state.coupon.discount
+      const finalPrice = getters.getTotal - discount
+      return Math.round(finalPrice * 100)/100
+    }else{
+      state.coupon.description = 'Sorry, that coupon does not exist.'
+      return state.coupon.description
+    }
+  },
+
+
 };
 
 // MUTATIONS
@@ -122,6 +138,7 @@ export const mutations = {
       state.favorites = state.favorites.concat(fetchedFavorites);
     }
   },
+
 };
 
 // ACTIONS
