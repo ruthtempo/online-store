@@ -73,11 +73,11 @@ export default {
   color: #ffc04a;
 }
 .login-status {
-  margin-top: 0;
+  margin-top: .5rem;
   margin-bottom: 1.5rem;
 }
 .signup-message {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 
 a {
