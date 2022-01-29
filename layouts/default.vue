@@ -47,9 +47,11 @@ export default {
 <style>
 html,
 body {
+  box-sizing: border-box;
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
 }
 

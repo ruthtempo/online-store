@@ -12,7 +12,7 @@
     <transition name="slide-side">
       <div v-if="sidenav" class="sidenav">
         <div class="sm-screen-only">
-          <UserStatus left="-70" top="45" />
+          <UserStatus left="-95" top="45" />
           <Favorites />
         </div>
         <CategoriesNav />

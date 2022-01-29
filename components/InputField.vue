@@ -62,8 +62,16 @@ export default {
 	************************************************************************* -->
 
 <style scoped>
+
 .field input {
+  box-sizing: border-box;
   width: 100%;
+  height: 20px;
+  margin: .1rem 0;
+  border-radius: 5px;
+  border-style: none;
+  padding: 20px 10px;
+  font-size: 15px;
 }
 
 .errors {

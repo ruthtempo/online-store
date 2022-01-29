@@ -116,6 +116,10 @@ export default {
 </script>
 
 <style scoped>
+
+.input-field {
+  margin: .4rem 0;
+}
 .error {
   color: red;
 }
