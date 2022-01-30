@@ -112,7 +112,7 @@ div {
 }
 .cart-header {
   margin: 0;
-  padding-bottom: .3rem;
+  padding-bottom: .4rem;
   text-transform: uppercase;
   text-align: center;
   border-bottom: 1px solid #ffc04a;
@@ -185,7 +185,7 @@ div {
 }
 .total {
   margin: .2rem 0 0;
-  padding: .4rem 0 .4rem;
+  padding: .6rem 0 0;
   border-top: 1px dashed #ffc04a;
   font-size: 1.2rem;
 }
@@ -194,9 +194,15 @@ div {
   font-weight: bold;
 }
 .checkout-button {
-  display: flex;
-  margin: 1.5rem auto 1rem;
+  width: 150px;
+  margin: 1.1rem auto .5rem;
   background-color: #ffc04a;
+}
+.checkout-button:hover {
+  background-color: #f5ae3d;
+}
+.checkout-button:active {
+  background-color: #f9d086;
 }
 .checkout-link {
     color: black;

@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <QuantityInput :quantity="quantity" @onchange="updateQuantity"/>
+    <QuantityInput @onchange="updateQuantity"/>
     <button @click="addToCart">Add To Cart</button>
   </div>
 </template>
@@ -28,46 +28,21 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
-      if (this.isLoggedIn) {
-        this.$store.dispatch("updateDatabaseCart");
+      if (this.quantity > 0) {
+        this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
+        if (this.isLoggedIn) {
+          this.$store.dispatch("updateDatabaseCart");
+        }
       }
     },
     updateQuantity(quantity){
-      this.quantity = quantity
+      this.quantity = quantity;
     }
   },
   data(){
     return{
-      quantity:1
+      quantity: 1
     }
   }
 };
 </script>
-
-<!-- *************************************************************************
-	STYLE
-	************************************************************************* -->
-
-<style>
-button {
-  display:flex;
-  width: 150px;
-  justify-content: center;
-  padding: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #ffc04a;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: darkgray;
-}
-</style>

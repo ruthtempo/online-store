@@ -88,10 +88,12 @@
       </div>
     </div>
     <div v-else class="cart-empty">
-        <h1>Your Cart is Empty</h1>
-      <button>
-        <nuxt-link to="index.vue">Continue Shopping</nuxt-link>
-      </button>
+      <h1>Your Cart is Empty</h1>
+      <nuxt-link to="/">
+        <button>
+          Continue Shopping
+        </button>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -245,13 +247,16 @@ button {
   background-color: #ffc04a;
 }
 
-.confirm:hover{
-  background-color: rgba(7, 7, 98, 1);
+button:hover {
+  background-color: #f5ae3d;
 }
 
-button:hover {
-  background-color: lightgrey;
-  color:white;
+button:active {
+  background-color: #f9d086;
+}
+
+.confirm:hover{
+  background-color: #65b36c;
 }
 
 .remove-btn{
@@ -271,9 +276,10 @@ button:hover {
   width:100%;
 }
 
-a{
+a {
+  font-size: 1rem;
   text-decoration: none;
-  color:white
+  color:black;
 }
 
 /*FORM */
