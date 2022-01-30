@@ -65,7 +65,7 @@
       <div class="basket">
         <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
         <div class="total">
-          TOTAL: {{ $store.getters.getTotal }} €
+          TOTAL : {{ $store.getters.getTotal }} €
         </div>
         <div class="promotional-code">
           <h4>Promotional Code</h4>
@@ -186,7 +186,7 @@ img {
 }
 
 .product-box {
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   /* flex-direction: column; */
   align-items: center;
@@ -222,7 +222,6 @@ img {
   border-style: dotted;
   border-color: #ffc04a;
   border-radius: 5px;
-  width:80px;
   justify-content: center;
   font-size: 25px;
   padding: 20px;
@@ -361,5 +360,101 @@ textarea{
   max-height: 80px;
   min-width:300px;
   max-width: 300px;
+}
+
+/* RESPONSIVE */
+
+
+@media (max-width: 600px) {
+  .cart-wrapper{
+    display:flex;
+    flex-direction: column;
+  }
+  img{
+    height:50px;
+    width:50px;
+  }
+  .products{
+  display:flex;
+  align-items: center;
+  max-width:100%;
+  }
+  .remove-btn{
+    display:flex;
+    height:40px;
+    width:40px;
+  }
+  .payment{
+    display:flex;
+    width:100%;
+    flex-direction: column
+  }
+  .data-form{
+    display: flex;
+    width:90%;
+  }
+  .basket{
+    display: flex;
+    width:100%;
+    padding:0;
+    margin-left:5px;
+  }
+
+}
+
+@media (max-width: 895px){
+  .cart-wrapper{
+    display:flex;
+    flex-direction: column;
+  }
+  img{
+    height:50px;
+    width:50px;
+  }
+  .products{
+  display:flex;
+  align-items: center;
+  max-width:100%;
+  }
+  .product-box{
+    width:100%;
+    margin:20px;
+  }
+  .payment{
+    display:flex;
+    width:100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .data-form{
+    display: flex;
+    width:100%;
+    margin:10px;
+  }
+  .basket{
+    display: flex;
+    width:100%;
+    padding:0;
+    margin:5px;
+  }
+  
+}
+
+@media (max-width: 1024px){
+  .cart-wrapper{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .products{
+  display:flex;
+  align-items: center;
+  max-width:100%;
+  }
+  .product-box{
+    width:100%;
+    margin:20px;
+  }
 }
 </style>
