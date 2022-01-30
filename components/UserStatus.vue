@@ -16,7 +16,7 @@
       <p class="login-status">
         {{ user.id ? `Logged in as ${user.userName}` : "You're not logged in" }}
       </p>
-      <div v-if="!user.id">
+      <div v-if="!user.id" class="login-container">
         <LogIn />
         <p class="signup-message">
           Don't have an account? <NuxtLink to="/sign-up">Sign Up</NuxtLink>
@@ -83,5 +83,9 @@ export default {
 a {
   text-decoration: none;
   color: white;
+}
+
+.login-container {
+  color: #ffc04a;
 }
 </style>
