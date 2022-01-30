@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <QuantityInput :quantity="quantity" @onchange="updateQuantity"/>
+    <QuantityInput @onchange="updateQuantity"/>
     <button @click="addToCart">Add To Cart</button>
   </div>
 </template>
@@ -28,18 +28,20 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
-      if (this.isLoggedIn) {
-        this.$store.dispatch("updateDatabaseCart");
+      if (this.quantity > 0) {
+        this.$store.dispatch("addOrIncrease", {item: this.cartItem, quantity: this.quantity});
+        if (this.isLoggedIn) {
+          this.$store.dispatch("updateDatabaseCart");
+        }
       }
     },
     updateQuantity(quantity){
-      this.quantity = quantity
+      this.quantity = quantity;
     }
   },
   data(){
     return{
-      quantity:1
+      quantity: 1
     }
   }
 };
