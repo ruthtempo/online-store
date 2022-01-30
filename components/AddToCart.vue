@@ -46,30 +46,3 @@ export default {
   }
 };
 </script>
-
-<!-- *************************************************************************
-	STYLE
-	************************************************************************* -->
-
-<style>
-button {
-  display:flex;
-  width: 150px;
-  justify-content: center;
-  padding: 15px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #ffc04a;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: darkgray;
-}
-</style>

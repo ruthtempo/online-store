@@ -60,4 +60,29 @@ body {
   display: grid;
   grid-template: auto 0 1fr auto / 1fr;
 }
+
+button {
+  width: 150px;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #ffc04a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f5ae3d;
+}
+
+button:active {
+  background-color: #f9d086;
+}
+
 </style>

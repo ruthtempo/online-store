@@ -116,7 +116,6 @@ export default {
 </script>
 
 <style scoped>
-
 .input-field {
   margin: .4rem 0;
 }
@@ -126,7 +125,6 @@ export default {
 .login-button {
   margin-top: 1.4rem;
 }
-
 .login-button:disabled {
   background-color: gray;
   color: #3f3f3f;
