@@ -6,13 +6,13 @@
             {{product.title}}
         </div>
         <div class="product-wrapper" v-if="product">
-            <div class="product-img" > 
-                <img :src='product.image' alt="the-product">
+            <div class="product-img"> 
+                <img :src='product.image' alt="Product photo">
             </div>
-            <div class="product-details">
-                <h2>{{product.title}}</h2>
-                <p>{{product.description}}</p>
-                <h1>{{product.price}} €</h1>
+            <div class="details-wrapper">
+                <h2 class="product-title">{{ product.title }}</h2>
+                <p class="product-description">{{ product.description }}</p>
+                <p class="product-price">{{ product.price }} €</p>
                 <div class="action-buttons">
                     <AddToCart :cartItem="product"/>
                     <AddToFavorites :favoriteItem="product"/>
@@ -40,6 +40,7 @@ export default {
 <style scoped>
 .breadcrumb{
     padding:20px;
+    text-transform: capitalize;
 }
 .product-wrapper{
     display:flex;
@@ -52,22 +53,55 @@ export default {
     padding: 30px;
     margin:20px;
 }
+.product-img img {
+    max-width: 400px;
+    height: auto;
+}
+@media (max-width: 950px) {
+    .product-img img {
+        max-width: 350px;
+    }
+}
+@media (max-width: 920px) {
+    .breadcrumb {
+        max-width: 98vw;
+        padding: 20px 1rem;
+    }
+    .product-wrapper {
+        flex-direction: column;
+        max-width: 98vw;
+        padding: 30px 0;
+    }
+    .product-img {
+        margin: 0;
+        padding: 0;
+    }
+}
 
-.product-details{
+.details-wrapper{
     display:flex;
     width:70%;
     padding-left:30px;
+    padding-right: 10vw;
     flex-direction: column;
 }
 
 .action-buttons{
+    width: 200px;
     display:flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 }   
 
-p{
-    line-height:1.5cm
+.product-description{
+    line-height:1.5rem;
+    margin-bottom: 14px;
+}
+
+.product-price {
+    font-size: 30px;
+    padding-left: 1rem;
+    margin-bottom: 14px;
 }
 
 a{
