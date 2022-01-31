@@ -5,11 +5,9 @@
 <template>
   <Popover :left="left" :top="top">
     <template v-slot:face>
-      <nuxt-link to="/checkout">
         <IconBase icon-name="user" strokeColor="#ffc04a">
             <IconUser />
         </IconBase>
-      </nuxt-link>
     </template>
 
     <template v-slot:content>

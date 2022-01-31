@@ -23,44 +23,72 @@
         </div>
       </div>
     </div>
-    <div v-if="$store.state.cart.length != 0"  class="payment">
+    <ValidationObserver  
+      v-slot="{invalid }"
+      tag="div" 
+      v-if="$store.state.cart.length != 0"  
+      class="payment"
+    >
       <div class="data-form">
         <h2>MY DATA</h2>
-          <form>
-            <div class="input-section">
-              <input type="text" placeholder="Name" required>
-            </div>
-            <div class="input-section">
-              <input type="text" placeholder="Last Name" required>
-            </div>
-            <div class="input-section">
-              <input type="e-mail" placeholder="Email" required>
-            </div>
-            <div class="input-section">
-              <input type="text" placeholder="Address">
-            </div>
-            <div class="input-section">
-              <input type="text" placeholder="Country">
-            </div>
-          </form>
-          <div class="payment-section">
-           <h2>PAYMENT AND SHIPPING</h2>
-           <div class="payment-method">
-             <h4>Payment System</h4>
-             <div class="payment-options">
+        <InputField
+          class="input-field"
+          type="text"
+          label="First Name"
+          autocomplete="on"
+          veeValidateRules="required|alpha_spaces"
+          v-model="buyer.firstName"
+        />
+        <InputField
+          class="input-field"
+          type="text"
+          label="Last Name"
+          autocomplete="on"
+          veeValidateRules="required|alpha_spaces"
+          v-model="buyer.lastName"
+        />
+        <InputField
+          class="input-field"
+          type="email"
+          label="Email"
+          autocomplete="on"
+          veeValidateRules="required|email" 
+          v-model="buyer.email"
+        />
+        <InputField
+          class="input-field"
+          type="text"
+          label="Address"
+          autocomplete="on"
+          veeValidateRules="required|alpha_spaces"
+          v-model="buyer.address"
+        />
+        <InputField
+          class="input-field"
+          type="text"
+          label="Country"
+          autocomplete="on"
+          veeValidateRules="required|alpha_spaces"
+          v-model="buyer.country"
+        />
+        <div class="payment-section">
+          <h2>PAYMENT AND SHIPPING</h2>
+          <div class="payment-method">
+            <h4>Payment System</h4>
+            <div class="payment-options">
               <input class="ratio" type="radio" id="credit" name="payment">
               <label for="credit">Credit Card</label>
-             </div>
-             <div class="payment-options">
+            </div>
+            <div class="payment-options">
               <input class="ratio" type="radio" id="bizum" name="payment">
               <label for="bizum">Bizum</label>
-             </div>
             </div>
-           <div class="comments">
+          </div>
+          <div class="comments">
             <h4>Comments about the order</h4>
             <textarea id="" placeholder="Include a comment about the order, transport, schedules or others"></textarea>
-           </div>
           </div>
+        </div>
       </div>
       <div class="basket">
         <h2>MY BASKET ({{ $store.getters.getCartTotalProducts}})</h2>
@@ -70,23 +98,22 @@
         <div class="promotional-code">
           <h4>Promotional Code</h4>
           <input type="text" placeholder="Do you have a promo code?" v-model="code">
-          <button type="submit" @click="checkCoupon(code)">
-            APPLY
+          <button type="submit"  @click="checkCoupon(code)">
+            Apply
           </button>
         </div>
-        <div v-if="this.value" class="final-price-wrap">
+        <div v-if="value" class="final-price-wrap">
             <div>{{couponMessage}}</div>
-            <p>TO PAY:</p>
             <div class="final-price">{{$store.getters.getFinalPrice}} €</div>
           </div>
-          <div v-else>{{couponMessage}}</div>
+          <div v-else class="error">{{couponMessage}}</div>
         <Nuxt-link to="/confirmation">
-          <button  @click="emptyCart" class="confirm">
+          <button :disabled="invalid" @click="emptyCart" class="confirm">
             Confirm Purchase
           </button>
         </Nuxt-link>
       </div>
-    </div>
+    </ValidationObserver>
     <div v-else class="cart-empty">
       <h1>Your Cart is Empty</h1>
       <nuxt-link to="/">
@@ -105,12 +132,14 @@
 <script>
 import IconBase from '~/components/IconBase.vue'
 import IconTrash from '~/components/icons/IconTrash.vue'
+import { ValidationObserver } from "vee-validate";
 
 export default {
   name: "Cart",
   components: {
     IconBase,
     IconTrash,
+    ValidationObserver,
   },
   data(){
     return{
@@ -118,6 +147,14 @@ export default {
       code: '',
       couponMessage:'',
       coupon: this.$store.state.coupon,
+      buyer:{
+        //if currentuser is defined ? then the valut is "currentuser.firstname" else by default will be empty string
+        firstName : this.$store.state.currentUser?.firstName ?? '',
+        lastName:this.$store.state.currentUser?.lastName ?? '',
+        email:this.$store.state.currentUser?.email ?? '',
+        address:'',
+        country:''
+      }
     }
   },
   computed: {
@@ -185,6 +222,7 @@ img {
   width:50%;
   background-color: whitesmoke;
   border-radius: 10px;
+  max-height:850px;
 }
 
 .product-box {
@@ -221,8 +259,6 @@ img {
 }
 .final-price{
   display:flex;
-  border-style: dotted;
-  border-color: #ffc04a;
   border-radius: 5px;
   justify-content: center;
   font-size: 25px;
@@ -254,6 +290,15 @@ button:active {
   background-color: #f9d086;
 }
 
+button:disabled{
+  background-color: gray;
+  color: #3f3f3f;
+}
+
+button:disabled:hover{
+  background-color: gray;
+  color: #3f3f3f;
+}
 .confirm:hover{
   background-color: #65b36c;
 }
@@ -295,6 +340,8 @@ a {
   align-items: center;
   margin-top:20px;
   background-color: lightgrey;
+  max-height:850px;
+  margin-left: 20px;
 }
 
 form{
@@ -302,10 +349,12 @@ form{
   flex-direction: column;
   width:90%;
 }
-.input-section{
-  display:flex;
+
+
+.input-field{
   flex-direction: column;
-  align-items: center;
+  padding-top:5px;
+  width:300px;
 }
 input{
   display: flex;
@@ -368,6 +417,10 @@ textarea{
   max-width: 300px;
 }
 
+.error{
+  padding-top:20px;
+  color:red;
+}
 /* RESPONSIVE */
 
 

@@ -114,6 +114,7 @@ export const mutations = {
   },
   // currentUser 
   setCurrentUser(state, userObject) {
+    console.log(userObject)
     state.currentUser = userObject;
   },
   clearCurrentUser(state) {
