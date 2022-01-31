@@ -56,9 +56,11 @@
       </div>
       <div class="form-buttons">
         <button :disabled="invalid" class="register-button">Register</button>
-        <div class="button">
-          <NuxtLink to="/">Cancel</NuxtLink>
-        </div>
+        <NuxtLink to="/" class="no-text-decoration">
+          <div class="button">
+            Cancel
+          </div>
+        </NuxtLink>
       </div>
     </ValidationObserver>
   </div>
@@ -187,6 +189,9 @@ export default {
 .error {
   color: red;
 }
+.no-text-decoration {
+  text-decoration: none;
+}
 .button {
   display: block;
   width: 150px;
@@ -194,7 +199,7 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: transparent;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   color: black;
