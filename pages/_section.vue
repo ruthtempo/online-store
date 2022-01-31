@@ -46,4 +46,15 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+/*responsive*/
+
+@media (max-width: 1024px){
+  .productList-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin:20px;
+  }
+}
 </style>

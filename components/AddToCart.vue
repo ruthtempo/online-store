@@ -46,3 +46,21 @@ export default {
   }
 };
 </script>
+
+<!-- *************************************************************************
+	STYLE
+	************************************************************************* -->
+
+<style>
+
+
+/* responsive */
+@media(min-width: 2000px){
+  button{
+    width:200px;
+    height:80px;
+    font-size: 20px;
+    align-items: center;
+  }
+}
+</style>
