@@ -1,42 +1,53 @@
+<!-- *************************************************************************
+	TEMPLATE
+	************************************************************************* -->
+
 <template>
   <div class="input-form">
-    <div class="value-button decrease" id="decrease" @click="decreaseQuantity" >-</div>
+    <div class="value-button decrease" id="decrease" @click="decreaseQuantity">-</div>
     <input type="number" id="number" v-model.number="quantity" />
-    <div class="value-button increase" id="increase" @click="quantity ++" >+</div>
- </div>
+    <div class="value-button increase" id="increase" @click="quantity++">+</div>
+  </div>
 </template>
+
+<!-- *************************************************************************
+	SCRIPT
+	************************************************************************* -->
 
 <script>
 export default {
   name: "QuantityInput",
   data() {
     return {
-          quantity: 1,
-    }
+      quantity: 1,
+    };
   },
   methods: {
     decreaseQuantity() {
       if (this.quantity > 1) {
-        this.quantity --;
+        this.quantity--;
       }
-    }
+    },
   },
   watch: {
     quantity: function (newVal, oldVal) {
       if (newVal > 0) {
         this.$emit("onchange", newVal);
       } else {
-        this.quantity = ''
+        this.quantity = "";
         this.$emit("onchange", 0);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
+<!-- *************************************************************************
+	STYLE
+	************************************************************************* -->
 
 <style scoped>
-  .input-form {
+.input-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +74,7 @@ export default {
 }
 
 .decrease {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px 0 0 8px;
@@ -71,7 +82,7 @@ export default {
 }
 
 .increase {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   /* margin-left: -4px; */
@@ -94,9 +105,9 @@ input#number {
   height: 40px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>

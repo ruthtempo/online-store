@@ -10,7 +10,7 @@
       class="register-form"
       @submit.prevent="handleSubmit"
     >
-    <h2 class="signup-header">Register</h2>
+      <h2 class="signup-header">Register</h2>
       <InputField
         class="input-field"
         type="text"
@@ -57,9 +57,7 @@
       <div class="form-buttons">
         <button :disabled="invalid" class="register-button">Register</button>
         <NuxtLink to="/" class="no-text-decoration">
-          <div class="button">
-            Cancel
-          </div>
+          <div class="button">Cancel</div>
         </NuxtLink>
       </div>
     </ValidationObserver>
@@ -88,7 +86,7 @@ export default {
         password: "",
         id: "",
         cart: [],
-        favorites: []
+        favorites: [],
       },
       alreadyExists: false,
     };
@@ -96,7 +94,7 @@ export default {
   methods: {
     createNewDatabaseEntry(user) {
       const db = getDatabase();
-      set(ref(db, 'users/' + user.id), user);
+      set(ref(db, "users/" + user.id), user);
     },
     handleSubmit(e) {
       const auth = getAuth();
@@ -112,7 +110,7 @@ export default {
           this.newUser.cart = this.$store.getters.getCart;
           delete this.newUser.password; // We don't want to store user passwords...
           this.$store.commit("setCurrentUser", this.newUser);
-          this.createNewDatabaseEntry(this.newUser)
+          this.createNewDatabaseEntry(this.newUser);
           this.$router.push("/");
         })
         .catch((error) => {
@@ -151,10 +149,10 @@ export default {
   padding-top: 1rem;
   padding-left: 5px;
 }
-.register-form{
+.register-form {
   background-color: lightgray;
-  padding:20px 50px;
-  border-radius:10px;
+  padding: 20px 50px;
+  border-radius: 10px;
 }
 @media (min-width: 430px) {
   .form-container {
@@ -178,11 +176,11 @@ export default {
   text-shadow: 2px 2px #ffc04a;
 }
 .input-field {
-  margin-top: .6rem;
+  margin-top: 0.6rem;
 }
 .form-buttons {
   width: 360px;
-  margin: .9rem auto;
+  margin: 0.9rem auto;
   display: flex;
   gap: 2rem;
 }
