@@ -226,9 +226,8 @@ img {
 }
 
 .product-box {
-  /* width: 90%; */
+  width: 90%;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   background-color: whitesmoke;
   padding: 20px;
